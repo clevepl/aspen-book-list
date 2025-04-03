@@ -3,17 +3,17 @@
  * @see https://github.com/WordPress/gutenberg/blob/trunk/docs/reference-guides/block-api/block-metadata.md#render
  */
 
+
+
 $special_header_args = [
 	'headers' => [
-		'X-Custom-SPECIAL' => 'cleveland_public_library_1964158419',
+		'X-Custom-SPECIAL' => defined( 'ASPEN_API_AUTHORIZATION_TOKEN' ),
 		'X-custom-CPL'     => 'WP_PHP_Aspen_block',
 	],
 ];
 
-// $special_header_args['headers'] = [
-// 'X-Custom-SPECIAL' => 'cleveland_public_library_1964158419',
-// 'X-custom-CPL'     => 'WP_PHP_Aspen_block',
-// ];
+
+
 
 $teh_request = wp_remote_get( 'https://search.cpl.org/API/ListAPI?method=getListTitles&id=26', $special_header_args );
 // $teh_request = wp_remote_get( 'https://rt.ambientweather.net/v1/devices?applicationKey=aee5a31d2dca41569022873b7c017395e3fdda29384a42b49d6404a8b9187f81&apiKey=4a56d5f742bc4517aac0d55b7c6e146f279da1cb7e3d4235af1c436f31124c83', $special_header_args );
