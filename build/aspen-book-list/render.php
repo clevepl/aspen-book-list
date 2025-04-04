@@ -39,14 +39,21 @@ if ( ! empty( $teh_data ) ) {
 <p <?php echo get_block_wrapper_attributes(); ?>> the block output will be below</p>
 	<?php esc_html_e( 'yes ' . $teh_data['result']['listTitle'], 'aspen-book-list' );
 
+$my_array = $teh_data['result']['titles'];
 echo $teh_data['result']['listTitle'];
 
-	foreach ($teh_data as $item):
-		print_r ($item);
+// for ($xx=0; $xx<count(($my_array)); $xx++)
+// {
 
+foreach ($my_array as $item):
+?>
+	<b> <?php echo esc_html( $item['title'], 'aspen-book-list' ); ?> </b> <br>
 
+<?php
 	endforeach;
-	?>
+
+//} // end of for loop
+?>
 
 	<?php
 } else {
