@@ -10,3 +10,38 @@
 	color: #fff;
 	padding: 2px;
 }
+
+img {
+  max-width: 100%;
+  height: auto; 
+}
+.container {
+  max-width: 120ch !important;
+
+}
+@media (min-width: 500px) {
+  .media-object-container {
+    display: grid;
+    grid-template-columns: fit-content(200px) 1fr;
+    grid-template-rows:1fr auto;
+    grid-template-areas:
+      "area-media area-object"
+      "area-media area-footer";
+    grid-gap: 20px;
+    margin-bottom: 2em;
+  }
+
+  .media-flip {
+    grid-template-columns: 1fr fit-content(250px);
+    grid-template-areas:
+      "area-object area-media"
+      "area-footer area-media";
+  }
+
+  .media-object__media {
+    grid-area: area-media;
+  }
+
+  .media-object__object {
+    grid-area: area-object;
+  }
