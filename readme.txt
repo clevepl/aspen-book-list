@@ -2,19 +2,15 @@
 Contributors:      Cleveland Public Library (will skora and Tyrone Fontaine)
 Tags:              aspen,
 Tested up to:      6.7
-Stable tag:        0.1.0
+Stable tag:        0.1.2
 License:           GPL-2.0-or-later
 License URI:       https://www.gnu.org/licenses/gpl-2.0.html
 
 Display a list from Aspen's Discovery Catalog into WordPress as a block;
 
-Allows you to display.
-
 LIMITATION: only will display the first 25 items on a list (for now).
 
 == Description ==
-
-This README best viewed in markdown (for now).
 
 The WordPress block was built with Create-Block(https://developer.wordpress.org/block-editor/reference-guides/packages/packages-create-block/) and uses wp-scripts.
 
@@ -25,9 +21,11 @@ This section describes how to install the plugin and get it working.
 e.g.
 
 1. Work with Aspen support and direct them to make an authorized API token for you.
-1. In your website's wp-config.php, add the line `define( 'ASPEN_API_AUTHORIZATION_TOKEN', 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX');` with XXXXXXXXXXXXXXXXXXXXXXXX replacing your API key.
-1. Clone this repository and place it in plugins folder if your website.
-1. Activate the plugin through the 'Plugins' screen in WordPress (or WP-CLI).
+2. In your website's wp-config.php, add the line
+define( 'ASPEN_API_AUTHORIZATION_TOKEN', 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX');
+with XXXXXXXXXXXXXXXXXXXXXXXX replacing your API key.
+3. Clone this repository and place it in the plugins folder.
+4. Activate the plugin through the 'Plugins' screen in WordPress (or WP-CLI).
 
 
 == For Development ==
@@ -55,6 +53,9 @@ directory take precedence. For example, `/assets/screenshot-1.png` would win ove
 2. This is the second screen shot
 
 == Changelog ==
+
+= 0.1.2 =
+* Enter the listID to input any list you have !
 
 = 0.1.0 =
 * Internal release

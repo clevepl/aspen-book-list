@@ -13,8 +13,6 @@ import { __ } from '@wordpress/i18n';
  */
 import { useBlockProps, InspectorControls } from '@wordpress/block-editor';
 
-import { useState } from '@wordpress/element';
-
 import { PanelBody, TextControl } from '@wordpress/components';
 import ServerSideRender from '@wordpress/server-side-render';
 
@@ -47,7 +45,7 @@ const BlockEdit = ( props ) => {
 	return (
 		<p { ...useBlockProps() }>
 			{ __(
-				'Aspen Book List – hello from the editor!',
+				'Hello! the list contents will display on the front end when you press save',
 				'aspen-book-list'
 			) }
 
@@ -57,7 +55,7 @@ const BlockEdit = ( props ) => {
 					__next40pxDefaultSize
 					__nextHasNoMarginBottom
 					label="List ID"
-					help="Insert the LIST ID"
+					help="Insert the LIST ID (only the number)"
 					type="string"
 					onChange={ ( value ) => setAttributes( { listID: value } ) }
 					value={ listID }

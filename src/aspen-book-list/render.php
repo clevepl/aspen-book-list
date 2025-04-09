@@ -55,7 +55,7 @@ $teh_data = json_decode( $body, true ); // true for an array
 if ( ! empty( $teh_data ) ) {
 	?>
 <p <?php echo get_block_wrapper_attributes(); ?>> keep this for now, so i don't forget about block_wrapper_attributes </p>
-	<h2><?php esc_html( $teh_data['result']['listTitle'], 'aspen-book-list' ); ?> </h2>
+	<h2><?php echo esc_html( $teh_data['result']['listTitle'], 'aspen-book-list' ); ?> </h2>
 
 	<?php
 	$my_array = $teh_data['result']['titles'];
