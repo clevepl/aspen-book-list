@@ -1,4 +1,5 @@
 /******/ (() => { // webpackBootstrap
+/******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
 /***/ "./src/aspen-book-list/block.json":
@@ -7,8 +8,7 @@
   \****************************************/
 /***/ ((module) => {
 
-"use strict";
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"create-block/aspen-book-list","version":"0.1.0","title":"Aspen Book List","category":"widgets","icon":"smiley","description":"Example block scaffolded with Create Block tool.","example":{},"supports":{"html":false},"textdomain":"aspen-book-list","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","render":"file:./render.php","viewScript":"file:./view.js"}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"create-block/aspen-book-list","version":"0.1.0","title":"Aspen Book List","category":"widgets","icon":"smiley","description":"Example block scaffolded with Create Block tool.","example":{},"supports":{"html":false},"attributes":{"listID":{"type":"string","default":""}},"textdomain":"aspen-book-list","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","render":"file:./render.php","viewScript":"file:./view.js"}');
 
 /***/ }),
 
@@ -18,7 +18,6 @@ module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/tru
   \*************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ Edit)
@@ -27,9 +26,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./editor.scss */ "./src/aspen-book-list/editor.scss");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _wordpress_server_side_render__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @wordpress/server-side-render */ "@wordpress/server-side-render");
+/* harmony import */ var _wordpress_server_side_render__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_wordpress_server_side_render__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./editor.scss */ "./src/aspen-book-list/editor.scss");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__);
 /**
  * Retrieves the translation of text.
  *
@@ -45,7 +50,15 @@ __webpack_require__.r(__webpack_exports__);
  */
 
 
+
+
+
 /**
+ * NOTE ABOUT TEXTCONTROL - making this a text string instead of an integer, because gutenberg meltyfaceemoji
+ * https://github.com/WordPress/gutenberg/issues/64292
+ * https://github.com/WordPress/gutenberg/pull/64293
+ *
+ *
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
  * Those files can contain any CSS code that gets applied to the editor.
  *
@@ -63,9 +76,23 @@ __webpack_require__.r(__webpack_exports__);
  */
 
 function Edit() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
+  // from https://github.com/WordPress/gutenberg/blob/b17d1cab9be2f531123cbccab8ecd94b87703711/docs/reference-guides/slotfills/plugin-sidebar.md?plain=1#L22
+  const [text, setText] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.useState)('');
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("p", {
     ...(0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps)(),
-    children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Aspen Book List – hello from the editor!', 'aspen-book-list')
+    children: [(0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Aspen Book List – hello from the editor!', 'aspen-book-list'), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InspectorControls, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
+        title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Aspen List Settings', 'cpl')
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.TextControl, {
+        __next40pxDefaultSize: true,
+        __nextHasNoMarginBottom: true,
+        label: "List ID",
+        help: "Insert the LIST ID",
+        type: "string",
+        onChange: newText => setText(newText),
+        value: ""
+      })]
+    })]
   });
 }
 
@@ -77,10 +104,57 @@ function Edit() {
   \*****************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 // extracted by mini-css-extract-plugin
 
+
+/***/ }),
+
+/***/ "./src/aspen-book-list/index.js":
+/*!**************************************!*\
+  !*** ./src/aspen-book-list/index.js ***!
+  \**************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/blocks */ "@wordpress/blocks");
+/* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./style.scss */ "./src/aspen-book-list/style.scss");
+/* harmony import */ var _edit__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./edit */ "./src/aspen-book-list/edit.js");
+/* harmony import */ var _block_json__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./block.json */ "./src/aspen-book-list/block.json");
+/**
+ * Registers a new block provided a unique name and an object defining its behavior.
+ *
+ * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-registration/
+ */
+
+
+/**
+ * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
+ * All files containing `style` keyword are bundled together. The code used
+ * gets applied both to the front of your site and to the editor.
+ *
+ * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
+ */
+
+
+/**
+ * Internal dependencies
+ */
+
+
+
+/**
+ * Every block starts by registering a new block type definition.
+ *
+ * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-registration/
+ */
+(0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__.registerBlockType)(_block_json__WEBPACK_IMPORTED_MODULE_3__.name, {
+  /**
+   * @see ./edit.js
+   */
+  edit: _edit__WEBPACK_IMPORTED_MODULE_2__["default"]
+});
 
 /***/ }),
 
@@ -88,9 +162,11 @@ __webpack_require__.r(__webpack_exports__);
 /*!****************************************!*\
   !*** ./src/aspen-book-list/style.scss ***!
   \****************************************/
-/***/ (() => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nHookWebpackError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nexpected \"}\".\n\u001b[34m   ╷\u001b[0m\n\u001b[34m47 │\u001b[0m   }\u001b[31m\u001b[0m\n\u001b[34m   │\u001b[0m \u001b[31m   ^\u001b[0m\n\u001b[34m   ╵\u001b[0m\n  src/aspen-book-list/style.scss 47:4  root stylesheet\n    at tryRunOrWebpackError (/home/skors/local/creads/app/public/wp-content/plugins/aspen-book-list/node_modules/webpack/lib/HookWebpackError.js:86:9)\n    at __webpack_require_module__ (/home/skors/local/creads/app/public/wp-content/plugins/aspen-book-list/node_modules/webpack/lib/Compilation.js:5301:12)\n    at __webpack_require__ (/home/skors/local/creads/app/public/wp-content/plugins/aspen-book-list/node_modules/webpack/lib/Compilation.js:5258:18)\n    at /home/skors/local/creads/app/public/wp-content/plugins/aspen-book-list/node_modules/webpack/lib/Compilation.js:5330:20\n    at symbolIterator (/home/skors/local/creads/app/public/wp-content/plugins/aspen-book-list/node_modules/neo-async/async.js:3485:9)\n    at done (/home/skors/local/creads/app/public/wp-content/plugins/aspen-book-list/node_modules/neo-async/async.js:3527:9)\n    at Hook.eval [as callAsync] (eval at create (/home/skors/local/creads/app/public/wp-content/plugins/aspen-book-list/node_modules/tapable/lib/HookCodeFactory.js:33:10), <anonymous>:15:1)\n    at Hook.CALL_ASYNC_DELEGATE [as _callAsync] (/home/skors/local/creads/app/public/wp-content/plugins/aspen-book-list/node_modules/tapable/lib/Hook.js:18:14)\n    at /home/skors/local/creads/app/public/wp-content/plugins/aspen-book-list/node_modules/webpack/lib/Compilation.js:5236:43\n    at symbolIterator (/home/skors/local/creads/app/public/wp-content/plugins/aspen-book-list/node_modules/neo-async/async.js:3482:9)\n    at timesSync (/home/skors/local/creads/app/public/wp-content/plugins/aspen-book-list/node_modules/neo-async/async.js:2297:7)\n    at Object.eachLimit (/home/skors/local/creads/app/public/wp-content/plugins/aspen-book-list/node_modules/neo-async/async.js:3463:5)\n    at /home/skors/local/creads/app/public/wp-content/plugins/aspen-book-list/node_modules/webpack/lib/Compilation.js:5198:16\n    at symbolIterator (/home/skors/local/creads/app/public/wp-content/plugins/aspen-book-list/node_modules/neo-async/async.js:3485:9)\n    at timesSync (/home/skors/local/creads/app/public/wp-content/plugins/aspen-book-list/node_modules/neo-async/async.js:2297:7)\n    at Object.eachLimit (/home/skors/local/creads/app/public/wp-content/plugins/aspen-book-list/node_modules/neo-async/async.js:3463:5)\n    at /home/skors/local/creads/app/public/wp-content/plugins/aspen-book-list/node_modules/webpack/lib/Compilation.js:5166:15\n    at symbolIterator (/home/skors/local/creads/app/public/wp-content/plugins/aspen-book-list/node_modules/neo-async/async.js:3485:9)\n    at done (/home/skors/local/creads/app/public/wp-content/plugins/aspen-book-list/node_modules/neo-async/async.js:3527:9)\n    at /home/skors/local/creads/app/public/wp-content/plugins/aspen-book-list/node_modules/webpack/lib/Compilation.js:5112:8\n    at /home/skors/local/creads/app/public/wp-content/plugins/aspen-book-list/node_modules/webpack/lib/Compilation.js:3531:6\n    at /home/skors/local/creads/app/public/wp-content/plugins/aspen-book-list/node_modules/webpack/lib/HookWebpackError.js:67:2\n    at Hook.eval [as callAsync] (eval at create (/home/skors/local/creads/app/public/wp-content/plugins/aspen-book-list/node_modules/tapable/lib/HookCodeFactory.js:33:10), <anonymous>:15:1)\n    at Cache.store (/home/skors/local/creads/app/public/wp-content/plugins/aspen-book-list/node_modules/webpack/lib/Cache.js:111:20)\n    at ItemCacheFacade.store (/home/skors/local/creads/app/public/wp-content/plugins/aspen-book-list/node_modules/webpack/lib/CacheFacade.js:141:15)\n    at /home/skors/local/creads/app/public/wp-content/plugins/aspen-book-list/node_modules/webpack/lib/Compilation.js:3530:11\n    at /home/skors/local/creads/app/public/wp-content/plugins/aspen-book-list/node_modules/webpack/lib/Cache.js:95:34\n    at Array.<anonymous> (/home/skors/local/creads/app/public/wp-content/plugins/aspen-book-list/node_modules/webpack/lib/cache/MemoryCachePlugin.js:45:13)\n    at /home/skors/local/creads/app/public/wp-content/plugins/aspen-book-list/node_modules/webpack/lib/Cache.js:95:19\n    at Hook.eval [as callAsync] (eval at create (/home/skors/local/creads/app/public/wp-content/plugins/aspen-book-list/node_modules/tapable/lib/HookCodeFactory.js:33:10), <anonymous>:19:1)\n    at Cache.get (/home/skors/local/creads/app/public/wp-content/plugins/aspen-book-list/node_modules/webpack/lib/Cache.js:79:18)\n    at ItemCacheFacade.get (/home/skors/local/creads/app/public/wp-content/plugins/aspen-book-list/node_modules/webpack/lib/CacheFacade.js:115:15)\n    at Compilation._codeGenerationModule (/home/skors/local/creads/app/public/wp-content/plugins/aspen-book-list/node_modules/webpack/lib/Compilation.js:3498:9)\n    at codeGen (/home/skors/local/creads/app/public/wp-content/plugins/aspen-book-list/node_modules/webpack/lib/Compilation.js:5100:11)\n    at symbolIterator (/home/skors/local/creads/app/public/wp-content/plugins/aspen-book-list/node_modules/neo-async/async.js:3482:9)\n    at timesSync (/home/skors/local/creads/app/public/wp-content/plugins/aspen-book-list/node_modules/neo-async/async.js:2297:7)\n    at Object.eachLimit (/home/skors/local/creads/app/public/wp-content/plugins/aspen-book-list/node_modules/neo-async/async.js:3463:5)\n    at /home/skors/local/creads/app/public/wp-content/plugins/aspen-book-list/node_modules/webpack/lib/Compilation.js:5130:14\n    at processQueue (/home/skors/local/creads/app/public/wp-content/plugins/aspen-book-list/node_modules/webpack/lib/util/processAsyncTree.js:61:4)\n    at process.processTicksAndRejections (node:internal/process/task_queues:77:11)\n-- inner error --\nError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nexpected \"}\".\n\u001b[34m   ╷\u001b[0m\n\u001b[34m47 │\u001b[0m   }\u001b[31m\u001b[0m\n\u001b[34m   │\u001b[0m \u001b[31m   ^\u001b[0m\n\u001b[34m   ╵\u001b[0m\n  src/aspen-book-list/style.scss 47:4  root stylesheet\n    at Object.<anonymous> (/home/skors/local/creads/app/public/wp-content/plugins/aspen-book-list/node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!/home/skors/local/creads/app/public/wp-content/plugins/aspen-book-list/node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!/home/skors/local/creads/app/public/wp-content/plugins/aspen-book-list/node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!/home/skors/local/creads/app/public/wp-content/plugins/aspen-book-list/src/aspen-book-list/style.scss:1:7)\n    at /home/skors/local/creads/app/public/wp-content/plugins/aspen-book-list/node_modules/webpack/lib/javascript/JavascriptModulesPlugin.js:494:10\n    at Hook.eval [as call] (eval at create (/home/skors/local/creads/app/public/wp-content/plugins/aspen-book-list/node_modules/tapable/lib/HookCodeFactory.js:19:10), <anonymous>:7:1)\n    at Hook.CALL_DELEGATE [as _call] (/home/skors/local/creads/app/public/wp-content/plugins/aspen-book-list/node_modules/tapable/lib/Hook.js:14:14)\n    at /home/skors/local/creads/app/public/wp-content/plugins/aspen-book-list/node_modules/webpack/lib/Compilation.js:5303:39\n    at tryRunOrWebpackError (/home/skors/local/creads/app/public/wp-content/plugins/aspen-book-list/node_modules/webpack/lib/HookWebpackError.js:81:7)\n    at __webpack_require_module__ (/home/skors/local/creads/app/public/wp-content/plugins/aspen-book-list/node_modules/webpack/lib/Compilation.js:5301:12)\n    at __webpack_require__ (/home/skors/local/creads/app/public/wp-content/plugins/aspen-book-list/node_modules/webpack/lib/Compilation.js:5258:18)\n    at /home/skors/local/creads/app/public/wp-content/plugins/aspen-book-list/node_modules/webpack/lib/Compilation.js:5330:20\n    at symbolIterator (/home/skors/local/creads/app/public/wp-content/plugins/aspen-book-list/node_modules/neo-async/async.js:3485:9)\n    at done (/home/skors/local/creads/app/public/wp-content/plugins/aspen-book-list/node_modules/neo-async/async.js:3527:9)\n    at Hook.eval [as callAsync] (eval at create (/home/skors/local/creads/app/public/wp-content/plugins/aspen-book-list/node_modules/tapable/lib/HookCodeFactory.js:33:10), <anonymous>:15:1)\n    at Hook.CALL_ASYNC_DELEGATE [as _callAsync] (/home/skors/local/creads/app/public/wp-content/plugins/aspen-book-list/node_modules/tapable/lib/Hook.js:18:14)\n    at /home/skors/local/creads/app/public/wp-content/plugins/aspen-book-list/node_modules/webpack/lib/Compilation.js:5236:43\n    at symbolIterator (/home/skors/local/creads/app/public/wp-content/plugins/aspen-book-list/node_modules/neo-async/async.js:3482:9)\n    at timesSync (/home/skors/local/creads/app/public/wp-content/plugins/aspen-book-list/node_modules/neo-async/async.js:2297:7)\n    at Object.eachLimit (/home/skors/local/creads/app/public/wp-content/plugins/aspen-book-list/node_modules/neo-async/async.js:3463:5)\n    at /home/skors/local/creads/app/public/wp-content/plugins/aspen-book-list/node_modules/webpack/lib/Compilation.js:5198:16\n    at symbolIterator (/home/skors/local/creads/app/public/wp-content/plugins/aspen-book-list/node_modules/neo-async/async.js:3485:9)\n    at timesSync (/home/skors/local/creads/app/public/wp-content/plugins/aspen-book-list/node_modules/neo-async/async.js:2297:7)\n    at Object.eachLimit (/home/skors/local/creads/app/public/wp-content/plugins/aspen-book-list/node_modules/neo-async/async.js:3463:5)\n    at /home/skors/local/creads/app/public/wp-content/plugins/aspen-book-list/node_modules/webpack/lib/Compilation.js:5166:15\n    at symbolIterator (/home/skors/local/creads/app/public/wp-content/plugins/aspen-book-list/node_modules/neo-async/async.js:3485:9)\n    at done (/home/skors/local/creads/app/public/wp-content/plugins/aspen-book-list/node_modules/neo-async/async.js:3527:9)\n    at /home/skors/local/creads/app/public/wp-content/plugins/aspen-book-list/node_modules/webpack/lib/Compilation.js:5112:8\n    at /home/skors/local/creads/app/public/wp-content/plugins/aspen-book-list/node_modules/webpack/lib/Compilation.js:3531:6\n    at /home/skors/local/creads/app/public/wp-content/plugins/aspen-book-list/node_modules/webpack/lib/HookWebpackError.js:67:2\n    at Hook.eval [as callAsync] (eval at create (/home/skors/local/creads/app/public/wp-content/plugins/aspen-book-list/node_modules/tapable/lib/HookCodeFactory.js:33:10), <anonymous>:15:1)\n    at Cache.store (/home/skors/local/creads/app/public/wp-content/plugins/aspen-book-list/node_modules/webpack/lib/Cache.js:111:20)\n    at ItemCacheFacade.store (/home/skors/local/creads/app/public/wp-content/plugins/aspen-book-list/node_modules/webpack/lib/CacheFacade.js:141:15)\n    at /home/skors/local/creads/app/public/wp-content/plugins/aspen-book-list/node_modules/webpack/lib/Compilation.js:3530:11\n    at /home/skors/local/creads/app/public/wp-content/plugins/aspen-book-list/node_modules/webpack/lib/Cache.js:95:34\n    at Array.<anonymous> (/home/skors/local/creads/app/public/wp-content/plugins/aspen-book-list/node_modules/webpack/lib/cache/MemoryCachePlugin.js:45:13)\n    at /home/skors/local/creads/app/public/wp-content/plugins/aspen-book-list/node_modules/webpack/lib/Cache.js:95:19\n    at Hook.eval [as callAsync] (eval at create (/home/skors/local/creads/app/public/wp-content/plugins/aspen-book-list/node_modules/tapable/lib/HookCodeFactory.js:33:10), <anonymous>:19:1)\n    at Cache.get (/home/skors/local/creads/app/public/wp-content/plugins/aspen-book-list/node_modules/webpack/lib/Cache.js:79:18)\n    at ItemCacheFacade.get (/home/skors/local/creads/app/public/wp-content/plugins/aspen-book-list/node_modules/webpack/lib/CacheFacade.js:115:15)\n    at Compilation._codeGenerationModule (/home/skors/local/creads/app/public/wp-content/plugins/aspen-book-list/node_modules/webpack/lib/Compilation.js:3498:9)\n    at codeGen (/home/skors/local/creads/app/public/wp-content/plugins/aspen-book-list/node_modules/webpack/lib/Compilation.js:5100:11)\n    at symbolIterator (/home/skors/local/creads/app/public/wp-content/plugins/aspen-book-list/node_modules/neo-async/async.js:3482:9)\n    at timesSync (/home/skors/local/creads/app/public/wp-content/plugins/aspen-book-list/node_modules/neo-async/async.js:2297:7)\n    at Object.eachLimit (/home/skors/local/creads/app/public/wp-content/plugins/aspen-book-list/node_modules/neo-async/async.js:3463:5)\n    at /home/skors/local/creads/app/public/wp-content/plugins/aspen-book-list/node_modules/webpack/lib/Compilation.js:5130:14\n    at processQueue (/home/skors/local/creads/app/public/wp-content/plugins/aspen-book-list/node_modules/webpack/lib/util/processAsyncTree.js:61:4)\n    at process.processTicksAndRejections (node:internal/process/task_queues:77:11)\n\nGenerated code for /home/skors/local/creads/app/public/wp-content/plugins/aspen-book-list/node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!/home/skors/local/creads/app/public/wp-content/plugins/aspen-book-list/node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!/home/skors/local/creads/app/public/wp-content/plugins/aspen-book-list/node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!/home/skors/local/creads/app/public/wp-content/plugins/aspen-book-list/src/aspen-book-list/style.scss\n1 | throw new Error(\"Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\\nexpected \\\"}\\\".\\n\\u001b[34m   ╷\\u001b[0m\\n\\u001b[34m47 │\\u001b[0m   }\\u001b[31m\\u001b[0m\\n\\u001b[34m   │\\u001b[0m \\u001b[31m   ^\\u001b[0m\\n\\u001b[34m   ╵\\u001b[0m\\n  src/aspen-book-list/style.scss 47:4  root stylesheet\");");
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
 
 /***/ }),
 
@@ -100,7 +176,6 @@ throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugi
   \*************************************/
 /***/ ((module) => {
 
-"use strict";
 module.exports = window["wp"]["blockEditor"];
 
 /***/ }),
@@ -111,8 +186,27 @@ module.exports = window["wp"]["blockEditor"];
   \********************************/
 /***/ ((module) => {
 
-"use strict";
 module.exports = window["wp"]["blocks"];
+
+/***/ }),
+
+/***/ "@wordpress/components":
+/*!************************************!*\
+  !*** external ["wp","components"] ***!
+  \************************************/
+/***/ ((module) => {
+
+module.exports = window["wp"]["components"];
+
+/***/ }),
+
+/***/ "@wordpress/element":
+/*!*********************************!*\
+  !*** external ["wp","element"] ***!
+  \*********************************/
+/***/ ((module) => {
+
+module.exports = window["wp"]["element"];
 
 /***/ }),
 
@@ -122,8 +216,17 @@ module.exports = window["wp"]["blocks"];
   \******************************/
 /***/ ((module) => {
 
-"use strict";
 module.exports = window["wp"]["i18n"];
+
+/***/ }),
+
+/***/ "@wordpress/server-side-render":
+/*!******************************************!*\
+  !*** external ["wp","serverSideRender"] ***!
+  \******************************************/
+/***/ ((module) => {
+
+module.exports = window["wp"]["serverSideRender"];
 
 /***/ }),
 
@@ -133,7 +236,6 @@ module.exports = window["wp"]["i18n"];
   \**********************************/
 /***/ ((module) => {
 
-"use strict";
 module.exports = window["ReactJSXRuntime"];
 
 /***/ })
@@ -164,7 +266,42 @@ module.exports = window["ReactJSXRuntime"];
 /******/ 		return module.exports;
 /******/ 	}
 /******/ 	
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = __webpack_modules__;
+/******/ 	
 /************************************************************************/
+/******/ 	/* webpack/runtime/chunk loaded */
+/******/ 	(() => {
+/******/ 		var deferred = [];
+/******/ 		__webpack_require__.O = (result, chunkIds, fn, priority) => {
+/******/ 			if(chunkIds) {
+/******/ 				priority = priority || 0;
+/******/ 				for(var i = deferred.length; i > 0 && deferred[i - 1][2] > priority; i--) deferred[i] = deferred[i - 1];
+/******/ 				deferred[i] = [chunkIds, fn, priority];
+/******/ 				return;
+/******/ 			}
+/******/ 			var notFulfilled = Infinity;
+/******/ 			for (var i = 0; i < deferred.length; i++) {
+/******/ 				var [chunkIds, fn, priority] = deferred[i];
+/******/ 				var fulfilled = true;
+/******/ 				for (var j = 0; j < chunkIds.length; j++) {
+/******/ 					if ((priority & 1 === 0 || notFulfilled >= priority) && Object.keys(__webpack_require__.O).every((key) => (__webpack_require__.O[key](chunkIds[j])))) {
+/******/ 						chunkIds.splice(j--, 1);
+/******/ 					} else {
+/******/ 						fulfilled = false;
+/******/ 						if(priority < notFulfilled) notFulfilled = priority;
+/******/ 					}
+/******/ 				}
+/******/ 				if(fulfilled) {
+/******/ 					deferred.splice(i--, 1)
+/******/ 					var r = fn();
+/******/ 					if (r !== undefined) result = r;
+/******/ 				}
+/******/ 			}
+/******/ 			return result;
+/******/ 		};
+/******/ 	})();
+/******/ 	
 /******/ 	/* webpack/runtime/compat get default export */
 /******/ 	(() => {
 /******/ 		// getDefaultExport function for compatibility with non-harmony modules
@@ -205,56 +342,68 @@ module.exports = window["ReactJSXRuntime"];
 /******/ 		};
 /******/ 	})();
 /******/ 	
+/******/ 	/* webpack/runtime/jsonp chunk loading */
+/******/ 	(() => {
+/******/ 		// no baseURI
+/******/ 		
+/******/ 		// object to store loaded and loading chunks
+/******/ 		// undefined = chunk not loaded, null = chunk preloaded/prefetched
+/******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
+/******/ 		var installedChunks = {
+/******/ 			"aspen-book-list/index": 0,
+/******/ 			"aspen-book-list/style-index": 0
+/******/ 		};
+/******/ 		
+/******/ 		// no chunk on demand loading
+/******/ 		
+/******/ 		// no prefetching
+/******/ 		
+/******/ 		// no preloaded
+/******/ 		
+/******/ 		// no HMR
+/******/ 		
+/******/ 		// no HMR manifest
+/******/ 		
+/******/ 		__webpack_require__.O.j = (chunkId) => (installedChunks[chunkId] === 0);
+/******/ 		
+/******/ 		// install a JSONP callback for chunk loading
+/******/ 		var webpackJsonpCallback = (parentChunkLoadingFunction, data) => {
+/******/ 			var [chunkIds, moreModules, runtime] = data;
+/******/ 			// add "moreModules" to the modules object,
+/******/ 			// then flag all "chunkIds" as loaded and fire callback
+/******/ 			var moduleId, chunkId, i = 0;
+/******/ 			if(chunkIds.some((id) => (installedChunks[id] !== 0))) {
+/******/ 				for(moduleId in moreModules) {
+/******/ 					if(__webpack_require__.o(moreModules, moduleId)) {
+/******/ 						__webpack_require__.m[moduleId] = moreModules[moduleId];
+/******/ 					}
+/******/ 				}
+/******/ 				if(runtime) var result = runtime(__webpack_require__);
+/******/ 			}
+/******/ 			if(parentChunkLoadingFunction) parentChunkLoadingFunction(data);
+/******/ 			for(;i < chunkIds.length; i++) {
+/******/ 				chunkId = chunkIds[i];
+/******/ 				if(__webpack_require__.o(installedChunks, chunkId) && installedChunks[chunkId]) {
+/******/ 					installedChunks[chunkId][0]();
+/******/ 				}
+/******/ 				installedChunks[chunkId] = 0;
+/******/ 			}
+/******/ 			return __webpack_require__.O(result);
+/******/ 		}
+/******/ 		
+/******/ 		var chunkLoadingGlobal = globalThis["webpackChunkaspen_book_list"] = globalThis["webpackChunkaspen_book_list"] || [];
+/******/ 		chunkLoadingGlobal.forEach(webpackJsonpCallback.bind(null, 0));
+/******/ 		chunkLoadingGlobal.push = webpackJsonpCallback.bind(null, chunkLoadingGlobal.push.bind(chunkLoadingGlobal));
+/******/ 	})();
+/******/ 	
 /************************************************************************/
-var __webpack_exports__ = {};
-// This entry needs to be wrapped in an IIFE because it needs to be in strict mode.
-(() => {
-"use strict";
-/*!**************************************!*\
-  !*** ./src/aspen-book-list/index.js ***!
-  \**************************************/
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/blocks */ "@wordpress/blocks");
-/* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./style.scss */ "./src/aspen-book-list/style.scss");
-/* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_style_scss__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _edit__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./edit */ "./src/aspen-book-list/edit.js");
-/* harmony import */ var _block_json__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./block.json */ "./src/aspen-book-list/block.json");
-/**
- * Registers a new block provided a unique name and an object defining its behavior.
- *
- * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-registration/
- */
-
-
-/**
- * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
- * All files containing `style` keyword are bundled together. The code used
- * gets applied both to the front of your site and to the editor.
- *
- * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
- */
-
-
-/**
- * Internal dependencies
- */
-
-
-
-/**
- * Every block starts by registering a new block type definition.
- *
- * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-registration/
- */
-(0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__.registerBlockType)(_block_json__WEBPACK_IMPORTED_MODULE_3__.name, {
-  /**
-   * @see ./edit.js
-   */
-  edit: _edit__WEBPACK_IMPORTED_MODULE_2__["default"]
-});
-})();
-
+/******/ 	
+/******/ 	// startup
+/******/ 	// Load entry module and return exports
+/******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["aspen-book-list/style-index"], () => (__webpack_require__("./src/aspen-book-list/index.js")))
+/******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
+/******/ 	
 /******/ })()
 ;
 //# sourceMappingURL=index.js.map

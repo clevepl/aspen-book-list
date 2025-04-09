@@ -11,6 +11,12 @@
 	"supports": {
 		"html": false
 	},
+	"attributes": {
+		"listID": {
+			"type": "string",
+			"default": ""
+		}
+	},
 	"textdomain": "aspen-book-list",
 	"editorScript": "file:./index.js",
 	"editorStyle": "file:./index.css",
