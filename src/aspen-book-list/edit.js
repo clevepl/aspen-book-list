@@ -39,10 +39,10 @@ import './editor.scss';
  *
  * @return {Element} Element to render.
  */
-export default function Edit() {
-
-		// from https://github.com/WordPress/gutenberg/blob/b17d1cab9be2f531123cbccab8ecd94b87703711/docs/reference-guides/slotfills/plugin-sidebar.md?plain=1#L22
-	const [ text, setText ] = useState( '' );
+const BlockEdit = ( props ) => {
+	const { attributes, setAttributes } = props;
+	const { listID } = attributes;
+	const blockProps = useBlockProps();
 
 	return (
 		<p { ...useBlockProps() }>
@@ -59,12 +59,14 @@ export default function Edit() {
 					label="List ID"
 					help="Insert the LIST ID"
 					type="string"
-					onChange={ ( newText ) => setText( newText ) }
-					value=""
+					onChange={ ( value ) => setAttributes( { listID: value } ) }
+					value={ listID }
 				/>
 			</InspectorControls>
 
 			{ /* <ServerSideRender block="cpl/podbean" attributes={attributes} /> */ }
 		</p>
 	);
-}
+};
+
+export default BlockEdit;

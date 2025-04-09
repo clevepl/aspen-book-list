@@ -3,6 +3,19 @@
  * @see https://github.com/WordPress/gutenberg/blob/trunk/docs/reference-guides/block-api/block-metadata.md#render
  */
 
+ /**
+ * cpl markup
+ *
+ * @var array    $attributes         Block attributes.
+ * @var string   $content            Block content.
+ * @var WP_Block $block              Block instance.
+ */
+
+
+$list_id = isset( $attributes['listID'] ) ? $attributes['listID'] : '';
+
+// explicitly cast as integer
+settype($list_id, 'integer');
 
 // function get_api_key(): string {
 // return defined( 'GOOGLE_PLACES_API_KEY' ) ? constant( 'GOOGLE_PLACES_API_KEY' ) : '';
@@ -22,7 +35,7 @@ $special_header_args = [
 $home_url = 'https://search.cpl.org';
 
 
-$teh_request = wp_remote_get( 'https://search.cpl.org/API/ListAPI?method=getListTitles&id=79054', $special_header_args );
+$teh_request = wp_remote_get( 'https://search.cpl.org/API/ListAPI?method=getListTitles&id=' . $list_id , $special_header_args );
 
 if ( is_wp_error( $teh_request ) ) {
 	return false; // Bail early
@@ -42,7 +55,7 @@ $teh_data = json_decode( $body, true ); // true for an array
 if ( ! empty( $teh_data ) ) {
 	?>
 <p <?php echo get_block_wrapper_attributes(); ?>> keep this for now, so i don't forget about block_wrapper_attributes </p>
-	<h2> <?php esc_html( $teh_data['result']['listTitle'], 'aspen-book-list' ); ?> </h2>
+	<h2><?php esc_html( $teh_data['result']['listTitle'], 'aspen-book-list' ); ?> </h2>
 
 	<?php
 	$my_array = $teh_data['result']['titles'];

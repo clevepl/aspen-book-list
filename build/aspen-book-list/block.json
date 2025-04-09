@@ -5,7 +5,7 @@
   "version": "0.1.0",
   "title": "Aspen Book List",
   "category": "widgets",
-  "icon": "smiley",
+  "icon": "book",
   "description": "Example block scaffolded with Create Block tool.",
   "example": {},
   "supports": {
