@@ -1,11 +1,11 @@
 <?php
 /**
  * Plugin Name:       Aspen Book List
- * Description:       Example block scaffolded with Create Block tool.
+ * Description:       Display a list from the Aspen API
  * Version:           0.1.0
  * Requires at least: 6.7
- * Requires PHP:      7.4
- * Author:            The WordPress Contributors
+ * Requires PHP:      8.X
+ * Author:            Cleveland Public Library (Will skora and Tyrone Fontaine)
  * License:           GPL-2.0-or-later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain:       aspen-book-list

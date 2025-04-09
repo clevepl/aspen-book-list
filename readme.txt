@@ -1,19 +1,22 @@
 === Aspen Book List ===
-Contributors:      The WordPress Contributors
-Tags:              block
+Contributors:      Cleveland Public Library (will skora and Tyrone Fontaine)
+Tags:              aspen,
 Tested up to:      6.7
 Stable tag:        0.1.0
 License:           GPL-2.0-or-later
 License URI:       https://www.gnu.org/licenses/gpl-2.0.html
 
-Example block scaffolded with Create Block tool.
+Display a list from Aspen's Discovery Catalog into WordPress as a block;
+
+Allows you to display.
+
+LIMITATION: only will display the first 25 items on a list (for now).
 
 == Description ==
 
-This is the long description. No limit, and you can use Markdown (as well as in the following sections).
+This README best viewed in markdown (for now).
 
-For backwards compatibility, if this section is missing, the full length of the short description will be used, and
-Markdown parsed.
+The WordPress block was built with Create-Block(https://developer.wordpress.org/block-editor/reference-guides/packages/packages-create-block/) and uses wp-scripts.
 
 == Installation ==
 
@@ -21,19 +24,27 @@ This section describes how to install the plugin and get it working.
 
 e.g.
 
-1. Upload the plugin files to the `/wp-content/plugins/aspen-book-list` directory, or install the plugin through the WordPress plugins screen directly.
-1. Activate the plugin through the 'Plugins' screen in WordPress
+1. Work with Aspen support and direct them to make an authorized API token for you.
+1. In your website's wp-config.php, add the line `define( 'ASPEN_API_AUTHORIZATION_TOKEN', 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX');` with XXXXXXXXXXXXXXXXXXXXXXXX replacing your API key.
+1. Clone this repository and place it in plugins folder if your website.
+1. Activate the plugin through the 'Plugins' screen in WordPress (or WP-CLI).
+
+
+== For Development ==
+
+1. Clone repository
+2. run `npm run install` within the directory
 
 
 == Frequently Asked Questions ==
 
-= A question that someone might have =
+= Does this use WordPress' interactivity API ?  =
 
-An answer to that question.
+No, not yet; might be on the radar.
 
-= What about foo bar? =
+= Why does the list not display within the editor?  =
 
-Answer to foo bar dilemma.
+That would be nice; but would be additional work to do; maybe in the future.
 
 == Screenshots ==
 
@@ -46,7 +57,7 @@ directory take precedence. For example, `/assets/screenshot-1.png` would win ove
 == Changelog ==
 
 = 0.1.0 =
-* Release
+* Internal release
 
 == Arbitrary section ==
 
