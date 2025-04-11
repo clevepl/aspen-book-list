@@ -90,7 +90,7 @@ if ( ! empty( $teh_data ) ) {
 
 		<div class="wp-block-buttons is-layout-flex wp-block-buttons-is-layout-flex">
 			<div class="wp-block-button">
-				<a class="wp-block-button__link wp-element-button" href="<?php echo esc_url( $item_url, 'aspen-book-list' ); ?>">Reserve this item</a></div>
+				<a class="wp-block-button__link wp-element-button" href="<?php echo esc_url( $item_url, 'aspen-book-list' ); ?>">Reserve <span class="screen-reader-text"> <?php echo esc_html( $title ); ?></span></a></div>
 			</div>
 		</div>
 
