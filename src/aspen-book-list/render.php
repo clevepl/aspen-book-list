@@ -22,6 +22,10 @@
 
 $list_id = isset( $attributes['listID'] ) ? $attributes['listID'] : '';
 
+
+$catalog_url = esc_url( constant( 'ASPEN_API_CATALOG_URL' ), 'https' );
+// TODO, HANDLE A ERROR BETTER TO VALIDATE$error_bad_catalog_url = new WP_Error(' ')
+
 // explicitly cast as integer
 settype( $list_id, 'integer' );
 
@@ -37,7 +41,7 @@ $special_header_args = [
 $home_url = 'https://search.cpl.org';
 
 
-$teh_request = wp_remote_get( 'https://search.cpl.org/API/ListAPI?method=getListTitles&id=' . $list_id, $special_header_args );
+$teh_request = wp_remote_get( $catalog_url . '/API/ListAPI?method=getListTitles&id=' . $list_id, $special_header_args );
 
 if ( is_wp_error( $teh_request ) ) {
 	return false; // Bail early

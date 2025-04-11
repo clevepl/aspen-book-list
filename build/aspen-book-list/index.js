@@ -8,7 +8,7 @@
   \****************************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"create-block/aspen-book-list","version":"0.1.2","title":"Aspen Book List","category":"widgets","icon":"book","description":"Example block scaffolded with Create Block tool.","example":{},"supports":{"html":false},"attributes":{"listID":{"type":"string","default":""}},"textdomain":"aspen-book-list","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","render":"file:./render.php","viewScript":"file:./view.js"}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"create-block/aspen-book-list","version":"0.1.3","title":"Aspen Book List","category":"widgets","icon":"book","description":"Example block scaffolded with Create Block tool.","example":{},"supports":{"html":false},"attributes":{"listID":{"type":"string","default":""}},"textdomain":"aspen-book-list","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","render":"file:./render.php","viewScript":"file:./view.js"}');
 
 /***/ }),
 
@@ -48,13 +48,15 @@ __webpack_require__.r(__webpack_exports__);
  */
 
 
+//
+
 
 
 /**
  * NOTE ABOUT TEXTCONTROL - making this a text string instead of an integer, because gutenberg meltyfaceemoji
  * https://github.com/WordPress/gutenberg/issues/64292
  * https://github.com/WordPress/gutenberg/pull/64293
- *
+ * also not using NumberControl because it's still experimental...
  *
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
  * Those files can contain any CSS code that gets applied to the editor.
@@ -97,6 +99,9 @@ const BlockEdit = props => {
         }),
         value: listID
       })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)((_wordpress_server_side_render__WEBPACK_IMPORTED_MODULE_3___default()), {
+      block: "create-block/aspen-book-list",
+      attributes: attributes
     })]
   });
 };

@@ -2,7 +2,7 @@
 Contributors:      Cleveland Public Library (will skora and Tyrone Fontaine)
 Tags:              aspen,
 Tested up to:      6.7
-Stable tag:        0.1.2
+Stable tag:        0.1.3
 License:           GPL-2.0-or-later
 License URI:       https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -23,9 +23,14 @@ e.g.
 1. Work with Aspen support and direct them to make an authorized API token for you.
 2. In your website's wp-config.php, add the line
 define( 'ASPEN_API_AUTHORIZATION_TOKEN', 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX');
-with XXXXXXXXXXXXXXXXXXXXXXXX replacing your API key.
-3. Clone this repository and place it in the plugins folder.
-4. Activate the plugin through the 'Plugins' screen in WordPress (or WP-CLI).
+with your API key replacing XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX.
+3. In your website's wp-config.php, add the line
+define( 'ASPEN_API_CATALOG_URL', 'https://search.aspen-discovery.org');
+
+Do not include the trailing backslash at the end of your catalog's URL.
+
+4. Clone this repository and place it in the plugins folder.
+5. Activate the plugin through the 'Plugins' screen in WordPress (or WP-CLI).
 
 
 == For Development ==
@@ -53,6 +58,9 @@ directory take precedence. For example, `/assets/screenshot-1.png` would win ove
 2. This is the second screen shot
 
 == Changelog ==
+
+= 0.1.3 =
+* Customize your site's URL
 
 = 0.1.2 =
 * Enter the listID to input any list you have !

@@ -13,6 +13,7 @@ import { __ } from '@wordpress/i18n';
  */
 import { useBlockProps, InspectorControls } from '@wordpress/block-editor';
 
+//
 import { PanelBody, TextControl } from '@wordpress/components';
 import ServerSideRender from '@wordpress/server-side-render';
 
@@ -20,7 +21,7 @@ import ServerSideRender from '@wordpress/server-side-render';
  * NOTE ABOUT TEXTCONTROL - making this a text string instead of an integer, because gutenberg meltyfaceemoji
  * https://github.com/WordPress/gutenberg/issues/64292
  * https://github.com/WordPress/gutenberg/pull/64293
- *
+ * also not using NumberControl because it's still experimental...
  *
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
  * Those files can contain any CSS code that gets applied to the editor.
@@ -49,6 +50,7 @@ const BlockEdit = ( props ) => {
 				'aspen-book-list'
 			) }
 
+
 			<InspectorControls>
 				<PanelBody title={ __( 'Aspen List Settings', 'cpl' ) } />
 				<TextControl
@@ -62,7 +64,7 @@ const BlockEdit = ( props ) => {
 				/>
 			</InspectorControls>
 
-			{ /* <ServerSideRender block="cpl/podbean" attributes={attributes} /> */ }
+			{ <ServerSideRender block="create-block/aspen-book-list" attributes={attributes} />  }
 		</p>
 	);
 };
