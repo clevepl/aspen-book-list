@@ -28,7 +28,7 @@ img {
       "area-media area-object"
       "area-media area-footer";
     grid-gap: 20px;
-    margin-bottom: 2em;
+    margin-bottom: 0;
   }
 
   .media-flip {
@@ -44,5 +44,64 @@ img {
 
   .media-object__object {
     grid-area: area-object;
+  }
+}
+
+h3.cpl-flex--mini__item-name {
+  margin: 10px 0;
+  color: #0057B7;
+  line-height: 1.3;
+}
+
+.master-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.media-object-container {
+  background: #fff;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+  border-right: 10px solid #0057B7;
+  overflow:hidden;
+}
+
+.media-object__media {
+  position: relative;
+  width: 150px;
+  height: 100%;
+  overflow: hidden;
+  box-shadow: 3px 0px 5px rgba(0, 0, 0, 0.3);
+}
+
+.media-object__media img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  object-position: center;
+}
+
+.media-object__object .wp-block-button {
+  margin-top: 20px !important;
+}
+
+.wp-block-button a {
+  background: #F1C400;
+  color: #000;
+  text-transform: uppercase;
+  font-weight: bold;
+  border-radius: 0 !important;
+}
+
+.wp-block-button a:hover {
+  background: #f6d64b;
+  color: #000;
+}
+
+@media (max-width: 979px) {
+  .master-container {
+    grid-template-columns: 1fr;
   }
 }
