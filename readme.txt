@@ -27,7 +27,7 @@ with your API key replacing XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX.
 3. In your website's wp-config.php, add the line
 define( 'ASPEN_API_CATALOG_URL', 'https://search.aspen-discovery.org');
 
-Do not include the trailing backslash at the end of your catalog's URL.
+Replace https://search.aspen-discovery.org with your catalog's URL; Do not include the trailing backslash at the end of your catalog's URL.
 
 4. Clone this repository and place it in the plugins folder.
 5. Activate the plugin through the 'Plugins' screen in WordPress (or WP-CLI).
@@ -47,7 +47,7 @@ No, not yet; might be on the radar.
 
 = Why does the list not display within the editor?  =
 
-That would be nice; but would be additional work to do; maybe in the future.
+It does now.
 
 == Screenshots ==
 
@@ -61,6 +61,7 @@ directory take precedence. For example, `/assets/screenshot-1.png` would win ove
 
 = 0.1.3 =
 * Customize your site's URL
+* Display the list's content within the block editor
 
 = 0.1.2 =
 * Enter the listID to input any list you have !
