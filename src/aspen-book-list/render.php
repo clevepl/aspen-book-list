@@ -37,27 +37,23 @@ $special_header_args = [
 	],
 ];
 
-// can abstract this out for a more generic block as a block attribute
-$home_url = 'https://search.cpl.org';
-
-
 $teh_request = wp_remote_get( $catalog_url . '/API/ListAPI?method=getListTitles&id=' . $list_id, $special_header_args );
 
-if ( is_wp_error( $teh_request ) ) {
-	return false; // Bail early
-}
-
 // if headers response code is 403 - then bail and return; your API key is not authorized or there's a connection error with Aspen
-// result-> in an array, titles
-// however, an error is not thrown even when echo $teh_request['response']['code']; will turn 403.
-// TODO
 if ( $teh_request['response']['code'] === 403 ) {
-	return new WP_Error( 'Bad response code, 403', 'Falling and cant get up' );
+ 	throw new Exception ( $teh_request['body'] . 'Your API key or IP address is not authorized ');
 }
 
 $body = wp_remote_retrieve_body( $teh_request );
 
 $teh_data = json_decode( $body, true );
+
+if ( $teh_data['result']['success'] === false) {
+	$the_error_message = $teh_data['result']['message'];
+		throw new Exception ( $the_error_message . 'This happens when the list is set to private; please toggle the list to be public so it can be used');
+	// return new WP_Error( $the_error_message, 'Falling and cant get up' );
+}
+
 if ( ! empty( $teh_data ) ) {
 	?>
 <div
