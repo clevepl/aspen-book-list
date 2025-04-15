@@ -79,7 +79,6 @@ h3.cpl-flex--mini__item-name {
   background: #fff;
   border-radius: 6px;
   border-left: 10px solid #0057B7;
-  overflow: hidden;
 }
 
 .media-object__media {
@@ -91,8 +90,8 @@ h3.cpl-flex--mini__item-name {
 }
 
 .media-object__media img {
-  -o-object-fit: cover;
-     object-fit: cover;
+  -o-object-fit: contain;
+     object-fit: contain;
   width: 100%;
   height: 100%;
   -o-object-position: center;
@@ -117,7 +116,22 @@ h3.cpl-flex--mini__item-name {
 }
 
 @media (max-width: 979px) {
+  .media-object-container {
+    grid-gap: 5px;
+    border-left: none;
+    border-bottom: 10px solid #0057B7;
+  }
   .master-container {
     grid-template-columns: 1fr;
+  }
+  .media-object__media {
+    height: 225px;
+    width: 100%;
+  }
+  .media-object__object {
+    padding: 15px 15px 15px 5px;
+  }
+  h3.cpl-flex--mini__item-name {
+    margin-top: 0;
   }
 }
