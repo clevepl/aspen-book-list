@@ -77,7 +77,7 @@ h3.cpl-flex--mini__item-name {
 }
 
 .media-object__media img {
-  object-fit: cover;
+  object-fit: contain;
   width: 100%;
   height: 100%;
   object-position: center;
@@ -113,7 +113,7 @@ h3.cpl-flex--mini__item-name {
   }
 
   .media-object__media {
-    height: 250px;
+    height: 225px;
     width: 100%;
   }
 
@@ -124,5 +124,5 @@ h3.cpl-flex--mini__item-name {
   h3.cpl-flex--mini__item-name {
     margin-top: 0;
   }
- 
+
 }
