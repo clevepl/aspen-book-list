@@ -79,7 +79,6 @@ h3.cpl-flex--mini__item-name {
   background: #fff;
   border-radius: 6px;
   border-right: 10px solid #0057B7;
-  overflow: hidden;
 }
 
 .media-object__media {
@@ -117,8 +116,23 @@ h3.cpl-flex--mini__item-name {
 }
 
 @media (max-width: 979px) {
+  .media-object-container {
+    grid-gap: 5px;
+    border-right: none;
+    border-bottom: 10px solid #0057B7;
+  }
   .master-container {
     grid-template-columns: 1fr;
+  }
+  .media-object__media {
+    height: 250px;
+    width: 100%;
+  }
+  .media-object__object {
+    padding: 15px 5px 15px 15px;
+  }
+  h3.cpl-flex--mini__item-name {
+    margin-top: 0;
   }
 }
 
