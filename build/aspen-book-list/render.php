@@ -60,9 +60,15 @@ $body = wp_remote_retrieve_body( $teh_request );
 $teh_data = json_decode( $body, true );
 if ( ! empty( $teh_data ) ) {
 	?>
-<p <?php echo get_block_wrapper_attributes(); ?>> keep this for now, so i don't forget about block_wrapper_attributes </p>
-
-<div class="master-container">
+<div
+	<?php
+	echo get_block_wrapper_attributes(
+		[
+			'class' => 'master-container',
+		]
+	);
+	?>
+	>
 
 	<?php
 	$my_array = $teh_data['result']['titles'];
