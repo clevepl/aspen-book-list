@@ -50,7 +50,7 @@ $teh_data = json_decode( $body, true );
 
 if ( $teh_data['result']['success'] === false) {
 	$the_error_message = $teh_data['result']['message'];
-		throw new Exception ( $the_error_message . 'This happens when the list is set to private; please toggle the list to be public so it can be used');
+		throw new Exception ( $the_error_message . 'This happens when the list is set to private; OR You haven\'t entered the list\'s ID. please toggle the list to be public so it can be used');
 	// return new WP_Error( $the_error_message, 'Falling and cant get up' );
 }
 
@@ -84,7 +84,7 @@ if ( ! empty( $teh_data ) ) {
 <div class="media-object-container">
 
 	<div class="media-object__media">
-	<img alt="cover for <?php echo esc_html( $title ); ?>" src="<?php echo esc_url( $home_url . $image_small, 'aspen-book-list' ); ?>" alt="Balloons">
+	<img alt="<?php echo esc_html( $title ); ?> cover" src="<?php echo esc_url( $catalog_url . $image_small, 'aspen-book-list' ); ?>">
 	</div>
 	<div class="media-object__object">
 
