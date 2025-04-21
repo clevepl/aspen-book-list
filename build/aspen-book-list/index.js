@@ -99,9 +99,6 @@ const BlockEdit = props => {
         }),
         value: listID
       })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)((_wordpress_server_side_render__WEBPACK_IMPORTED_MODULE_3___default()), {
-      block: "create-block/aspen-book-list",
-      attributes: attributes
     })]
   });
 };

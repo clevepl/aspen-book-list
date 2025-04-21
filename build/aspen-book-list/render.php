@@ -3,6 +3,8 @@
  * @see https://github.com/WordPress/gutenberg/blob/trunk/docs/reference-guides/block-api/block-metadata.md#render
  */
 
+// ini_set('display_errors', 'On');
+
 /**
  * cpl markup
  *
@@ -22,9 +24,22 @@
 
 $list_id = isset( $attributes['listID'] ) ? $attributes['listID'] : '';
 
+function get_aspen_url(): string {
+	return defined( 'ASPEN_API_CATALOG_URL' ) ? constant( 'ASPEN_API_CATALOG_URL' ) : '';
+}
 
-$catalog_url = esc_url( constant( 'ASPEN_API_CATALOG_URL' ), 'https' );
+$catalog_url = get_aspen_url();
+
+$the_error = new WP_ERROR;
+
+
 // TODO, HANDLE A ERROR BETTER TO VALIDATE$error_bad_catalog_url = new WP_Error(' ')
+
+if  (empty($catalog_url)) {
+	$the_error->add('the Catalog URL is not defined; please read the README For more information','the Catalog URL is not defined; please read the README For more information');
+	echo $the_error->get_error_message();
+
+}
 
 // explicitly cast as integer
 settype( $list_id, 'integer' );
@@ -41,16 +56,24 @@ $teh_request = wp_remote_get( $catalog_url . '/API/ListAPI?method=getListTitles&
 
 // if headers response code is 403 - then bail and return; your API key is not authorized or there's a connection error with Aspen
 if ( $teh_request['response']['code'] === 403 ) {
- 	throw new Exception ( $teh_request['body'] . 'Your API key or IP address is not authorized ');
+
+ //	throw new Exception ( $teh_request['body'] . 'Your API key or IP address is not authorized ');
+ $the_error->add( $teh_request['body'] . 'Your API key or IP address is not authorized ');
+ echo $the_error->get_error_message();
 }
 
 $body = wp_remote_retrieve_body( $teh_request );
 
 $teh_data = json_decode( $body, true );
 
+// even there is a successful response, the JSON body can return a message that has an error message
 if ( $teh_data['result']['success'] === false) {
-	$the_error_message = $teh_data['result']['message'];
-		throw new Exception ( $the_error_message . 'This happens when the list is set to private; OR You haven\'t entered the list\'s ID. please toggle the list to be public so it can be used');
+	// $the_error_message = $teh_data['result']['message'];
+	// $the_error_message = new \WP_Error;
+	// $the_error_message->add( $teh_data['result']['message'] , $teh_data['result']['message'] );
+	// echo $the_error_message;
+
+		// throw new Exception ( $the_error_message . 'This happens when the list is set to private; OR You haven\'t entered the list\'s ID. please toggle the list to be public so it can be used');
 	// return new WP_Error( $the_error_message, 'Falling and cant get up' );
 }
 
