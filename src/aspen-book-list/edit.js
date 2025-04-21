@@ -64,7 +64,7 @@ const BlockEdit = ( props ) => {
 				/>
 			</InspectorControls>
 
-			{ <ServerSideRender block="create-block/aspen-book-list" attributes={attributes} />  }
+			{/* { <ServerSideRender block="create-block/aspen-book-list" attributes={attributes} />  } */}
 		</p>
 	);
 };

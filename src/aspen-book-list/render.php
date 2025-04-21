@@ -3,6 +3,8 @@
  * @see https://github.com/WordPress/gutenberg/blob/trunk/docs/reference-guides/block-api/block-metadata.md#render
  */
 
+// ini_set('display_errors', 'On');
+
 /**
  * cpl markup
  *
@@ -41,16 +43,22 @@ $teh_request = wp_remote_get( $catalog_url . '/API/ListAPI?method=getListTitles&
 
 // if headers response code is 403 - then bail and return; your API key is not authorized or there's a connection error with Aspen
 if ( $teh_request['response']['code'] === 403 ) {
- 	throw new Exception ( $teh_request['body'] . 'Your API key or IP address is not authorized ');
+	// $form_error = new WP_Error;
+ //	throw new Exception ( $teh_request['body'] . 'Your API key or IP address is not authorized ');
 }
 
 $body = wp_remote_retrieve_body( $teh_request );
 
 $teh_data = json_decode( $body, true );
 
+// even there is a successful response, the JSON body can return a message that has an error message
 if ( $teh_data['result']['success'] === false) {
-	$the_error_message = $teh_data['result']['message'];
-		throw new Exception ( $the_error_message . 'This happens when the list is set to private; OR You haven\'t entered the list\'s ID. please toggle the list to be public so it can be used');
+	// $the_error_message = $teh_data['result']['message'];
+	// $the_error_message = new \WP_Error;
+	// $the_error_message->add( $teh_data['result']['message'] , $teh_data['result']['message'] );
+	// echo $the_error_message;
+
+		// throw new Exception ( $the_error_message . 'This happens when the list is set to private; OR You haven\'t entered the list\'s ID. please toggle the list to be public so it can be used');
 	// return new WP_Error( $the_error_message, 'Falling and cant get up' );
 }
 
