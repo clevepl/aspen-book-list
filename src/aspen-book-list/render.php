@@ -26,11 +26,20 @@ $list_id = isset( $attributes['listID'] ) ? $attributes['listID'] : '';
 
 final class AspenList {
 
-
+	/**
+	 * Get the aspen CATALOG URL, return empty string if not defined
+	 *
+	 * @return string aspen catalog url
+	 */
 	protected function get_aspen_url(): string {
 		return defined( 'ASPEN_API_CATALOG_URL' ) ? constant( 'ASPEN_API_CATALOG_URL' ) : '';
 	}
 
+	/**
+	 * Get the associated/ special token that you registered with your Aspen Support Team; return empty string if not defined
+	 *
+	 * @return string special token
+	 */
 	protected function get_aspen_special_token(): string {
 		return defined( 'ASPEN_API_AUTHORIZATION_TOKEN' ) ? constant( 'ASPEN_API_AUTHORIZATION_TOKEN' ) : '';
 	}
@@ -40,6 +49,10 @@ final class AspenList {
 	// }
 
 	// returns an array, teh_request
+	/**
+	* @param  // listid attribute
+	* @return array|WP_Error
+	*/
 	public function fetch_list() {
 		$teh_request = wp_remote_get(
 		$this->get_aspen_url() . '/API/ListAPI?method=getListTitles&id=26',
@@ -51,13 +64,22 @@ final class AspenList {
 		]
 	);
 
+	// set transient for the list spefifically
+	// set_transient( self::LIBCAL_ACCESS_TOKEN_CACHE_GROUP, $data['access_token'], 3600 );
+
 
 	// Check for request errors
 	if ( is_wp_error( $teh_request ) ) {
 		return new \WP_Error( 'libcal_token_error', __( 'Failed to retrieve LibCal access token.', 'cpl-plugin' ) );
 	}
 
-}
+	$body = wp_remote_retrieve_body( $teh_request );
+
+	$teh_data = json_decode( $body, true );
+
+	return $teh_data;
+
+	}
 
 }
 
@@ -98,9 +120,9 @@ settype( $list_id, 'integer' );
 //  echo $the_error->get_error_message();
 // }
 
-$body = wp_remote_retrieve_body( $teh_request );
+// $body = wp_remote_retrieve_body( $teh_request );
 
-$teh_data = json_decode( $body, true );
+// $teh_data = json_decode( $body, true );
 
 // even there is a successful response, the JSON body can return a message that has an error message
 if ( $teh_data['result']['success'] === false) {
