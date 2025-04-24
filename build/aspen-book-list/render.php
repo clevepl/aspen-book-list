@@ -20,7 +20,6 @@ $list_id = isset( $attributes['listID'] ) ? $attributes['listID'] : '';
 
 $my_new_list_object = new \Cpl\AspenBookList\AspenList();
 
-
 $teh_data = $my_new_list_object->fetch_list($list_id);
 $catalog_url = $my_new_list_object->get_aspen_url();
 
@@ -38,16 +37,6 @@ $catalog_url = $my_new_list_object->get_aspen_url();
 //  echo $the_error->get_error_message();
 // }
 
-// even there is a successful response, the JSON body can return a message that has an error message
-// if ( $teh_data['result']['success'] === false) {
-	// $the_error_message = $teh_data['result']['message'];
-	// $the_error_message = new \WP_Error;
-	// $the_error_message->add( $teh_data['result']['message'] , $teh_data['result']['message'] );
-	// echo $the_error_message;
-
-		// throw new Exception ( $the_error_message . 'This happens when the list is set to private; OR You haven\'t entered the list\'s ID. please toggle the list to be public so it can be used');
-	// return new WP_Error( $the_error_message, 'Falling and cant get up' );
-// }
 
 if ( ! empty( $teh_data ) ) {
 	?>
@@ -110,7 +99,7 @@ if ( ! empty( $teh_data ) ) {
 
 	?>
 
-<p> The API request was successful but there are no items in this list; this will be refined </p>
+<p> The API request was successful but there are no items in this list; this will be refined. </p>
 
 
 	<?php

@@ -52,8 +52,21 @@ final class AspenList {
 
 		$teh_data = json_decode( $body, true );
 
+		/*
+		* even there is a successful response from the API, the response from Aspen can result in 3 scensarios where we will not have a list:
+		* $teh_data['result']['success'] === false has three scenarios:
+		* the list is exists and is marked as private in Aspen (clear error message is given here)
+		// OR (and the Aspen API gives the identifical error message in these two scenarios )
+		// No listID was included in the block; or no such list with that listID exists.
+		*/
+		if ( $teh_data['result']['success'] === false ) {
+			$the_error_message = $teh_data['result']['message'];
+			$the_error_message = new \WP_Error();
+			echo 'Error in block: ' . $teh_data['result']['message'] . 'Your list does not exist or you forgot to input a listid';
+			// $the_error_message->add( $teh_data['result']['message'] , $teh_data['result']['message'] );
+			// echo $the_error_message;
+		}
+
 		return $teh_data;
 	}
 }
-
-?>
