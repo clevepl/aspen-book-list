@@ -19,25 +19,16 @@
 $list_id = isset( $attributes['listID'] ) ? $attributes['listID'] : '';
 
 $my_new_list_object = new \Cpl\AspenBookList\AspenList();
-$my_new_list_object->fetch_list($list_id);
+
+
+$teh_data = $my_new_list_object->fetch_list($list_id);
+$catalog_url = $my_new_list_object->get_aspen_url();
 
 // if  (empty($catalog_url)) {
 // 	$the_error->add('the Catalog URL is not defined; please read the README For more information','the Catalog URL is not defined; please read the README For more information');
 // 	echo $the_error->get_error_message();
 
 // }
-
-// explicitly cast as integer
-
-// reminder: ASPEN_API_AUTHORIZATION_TOKEN is defined in wp-config.php
-// $special_header_args = [
-// 	'headers' => [
-// 		'X-Custom-SPECIAL' => constant( 'ASPEN_API_AUTHORIZATION_TOKEN' ),
-// 		'X-custom-CPL'     => 'WP_PHP_Aspen_block',
-// 	],
-// ];
-
-// $teh_request = wp_remote_get( $catalog_url . '/API/ListAPI?method=getListTitles&id=' . $list_id, $special_header_args );
 
 // // if headers response code is 403 - then bail and return; your API key is not authorized or there's a connection error with Aspen
 // if ( $teh_request['response']['code'] === 403 ) {
@@ -46,10 +37,6 @@ $my_new_list_object->fetch_list($list_id);
 //  $the_error->add( $teh_request['body'] . 'Your API key or IP address is not authorized ');
 //  echo $the_error->get_error_message();
 // }
-
-// $body = wp_remote_retrieve_body( $teh_request );
-
-// $teh_data = json_decode( $body, true );
 
 // even there is a successful response, the JSON body can return a message that has an error message
 // if ( $teh_data['result']['success'] === false) {

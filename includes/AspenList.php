@@ -10,7 +10,7 @@ final class AspenList {
 	 *
 	 * @return string aspen catalog url
 	 */
-	protected function get_aspen_url(): string {
+	public function get_aspen_url(): string {
 		return defined( 'ASPEN_API_CATALOG_URL' ) ? constant( 'ASPEN_API_CATALOG_URL' ) : '';
 	}
 
@@ -51,8 +51,6 @@ final class AspenList {
 		$body = wp_remote_retrieve_body( $teh_request );
 
 		$teh_data = json_decode( $body, true );
-
-		echo 'hossenfeffer';
 
 		return $teh_data;
 	}
