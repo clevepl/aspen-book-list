@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Cpl\AspenBookList;
 
 final class AspenList {
@@ -27,41 +26,36 @@ final class AspenList {
 
 	// returns an array, teh_request
 	/**
-	* @param  string $listid (it's just easier if we treat it as a string)
-	* @return array|WP_Error
-	*/
-	public function fetch_list($listid) {
+	 * @param  string $listid (it's just easier if we treat it as a string)
+	 * @return array|WP_Error
+	 */
+	public function fetch_list( $listid ) {
 		$teh_request = wp_remote_get(
-		$this->get_aspen_url() . '/API/ListAPI?method=getListTitles&id=' . sanitize_key($listid),
-		[
-		'headers' => [
-			'X-Custom-SPECIAL' => $this->get_aspen_special_token(),
-			'X-custom-CPL'     => 'WP_PHP_Aspen_block',
-		],
-		]
-	);
+			$this->get_aspen_url() . '/API/ListAPI?method=getListTitles&id=' . sanitize_key( $listid ),
+			[
+				'headers' => [
+					'X-Custom-SPECIAL' => $this->get_aspen_special_token(),
+					'X-custom-CPL'     => 'WP_PHP_Aspen_block',
+				],
+			]
+		);
 
-	// set transient for the list spefifically
-	// set_transient( self::LIBCAL_ACCESS_TOKEN_CACHE_GROUP, $data['access_token'], 3600 );
+		// set transient for the list spefifically
+		// set_transient( self::LIBCAL_ACCESS_TOKEN_CACHE_GROUP, $data['access_token'], 3600 );
 
+		// Check for request errors
+		if ( is_wp_error( $teh_request ) ) {
+			return new \WP_Error( 'libcal_token_error', __( 'Failed to retrieve LibCal access token.', 'cpl-plugin' ) );
+		}
 
-	// Check for request errors
-	if ( is_wp_error( $teh_request ) ) {
-		return new \WP_Error( 'libcal_token_error', __( 'Failed to retrieve LibCal access token.', 'cpl-plugin' ) );
+		$body = wp_remote_retrieve_body( $teh_request );
+
+		$teh_data = json_decode( $body, true );
+
+		echo 'hossenfeffer';
+
+		return $teh_data;
 	}
-
-	$body = wp_remote_retrieve_body( $teh_request );
-
-	$teh_data = json_decode( $body, true );
-
-	echo "hossenfeffer";
-
-
-	return $teh_data;
-
-
-	}
-
 }
 
 ?>
