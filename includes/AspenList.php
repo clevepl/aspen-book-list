@@ -56,9 +56,11 @@ final class AspenList {
 
 	$teh_data = json_decode( $body, true );
 
+	echo "hossenfeffer";
+
+
 	return $teh_data;
 
-	echo "hossenfeffer";
 
 	}
 
