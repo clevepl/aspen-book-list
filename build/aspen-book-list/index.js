@@ -8,7 +8,7 @@
   \****************************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"create-block/aspen-book-list","version":"0.1.4","title":"Aspen Book List","category":"widgets","icon":"book","description":"Display a list from the Aspen Discovery API","example":{},"supports":{"html":false},"attributes":{"listID":{"type":"string","default":""}},"textdomain":"aspen-book-list","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","render":"file:./render.php","viewScript":"file:./view.js"}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"create-block/aspen-book-list","version":"0.2.0","title":"Aspen Book List","category":"widgets","icon":"book","description":"Display a list from the Aspen Discovery API","example":{},"supports":{"html":false},"attributes":{"listID":{"type":"string","default":""}},"textdomain":"aspen-book-list","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","render":"file:./render.php","viewScript":"file:./view.js"}');
 
 /***/ }),
 
@@ -99,9 +99,6 @@ const BlockEdit = props => {
         }),
         value: listID
       })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)((_wordpress_server_side_render__WEBPACK_IMPORTED_MODULE_3___default()), {
-      block: "create-block/aspen-book-list",
-      attributes: attributes
     })]
   });
 };

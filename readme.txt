@@ -2,11 +2,13 @@
 Contributors:      Cleveland Public Library (will skora and Tyrone Fontaine)
 Tags:              aspen,
 Tested up to:      6.7
-Stable tag:        0.1.4
+Stable tag:        0.2.0
 License:           GPL-2.0-or-later
 License URI:       https://www.gnu.org/licenses/gpl-2.0.html
 
-Display a list from Aspen's Discovery Catalog into WordPress as a block;
+Display a list of books (or other items) from Aspen's Discovery Catalog into WordPress as a block.
+
+This is intended for libraries; Aspen Discovery's API is not intended to be by the end users at this time (sorry).
 
 LIMITATION: only will display the first 25 items on a list (for now).
 
@@ -37,6 +39,7 @@ Replace https://search.aspen-discovery.org with your catalog's URL; Do not inclu
 
 1. Clone repository
 2. run `npm run install` within the directory
+3. If you are modifying the class or adding a new class, run
 
 
 == Frequently Asked Questions ==
@@ -47,7 +50,7 @@ No, not yet; might be on the radar.
 
 = Why does the list not display within the editor?  =
 
-It does now.
+Eventually.
 
 == Screenshots ==
 
@@ -59,7 +62,11 @@ directory take precedence. For example, `/assets/screenshot-1.png` would win ove
 
 == Changelog ==
 
-= 0.1.3 =
+= 0.2.0 =
+* Rewritten in OOP (Object-Oriented Programming)
+* eliminate crashes when errors occur
+
+= 0.1.4 =
 * Improved display on smaller screens
 * clear error messages
 

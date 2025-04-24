@@ -2,7 +2,7 @@
 /**
  * Plugin Name:       Aspen Book List
  * Description:       Display a list from the Aspen Discovery API
- * Version:           0.1.4
+ * Version:           0.2.0
  * Requires at least: 6.7
  * Requires PHP:      8.X
  * Author:            Cleveland Public Library (Will skora and Tyrone Fontaine)
@@ -16,6 +16,11 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
+
+
+// LOAD the AUTOLOADING class
+require_once dirname(__FILE__)."/vendor/autoload.php";
+
 
 /**
  * Registers the block using the metadata loaded from the `block.json` file.

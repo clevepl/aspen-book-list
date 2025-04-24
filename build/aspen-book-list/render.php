@@ -3,6 +3,8 @@
  * @see https://github.com/WordPress/gutenberg/blob/trunk/docs/reference-guides/block-api/block-metadata.md#render
  */
 
+// ini_set('display_errors', 'On');
+
 /**
  * cpl markup
  *
@@ -14,45 +16,27 @@
  * @var array    $context    Block context.
  */
 
-// function get_api_key(): string {
-// return defined( 'GOOGLE_PLACES_API_KEY' ) ? constant( 'GOOGLE_PLACES_API_KEY' ) : '';
-// }
-
-// TODO: MAKE THIS OOP, (ARE YOU DOWN WITH OOP, YEAH YOU KNOW ME?!)
-
 $list_id = isset( $attributes['listID'] ) ? $attributes['listID'] : '';
 
+$my_new_list_object = new \Cpl\AspenBookList\AspenList();
 
-$catalog_url = esc_url( constant( 'ASPEN_API_CATALOG_URL' ), 'https' );
-// TODO, HANDLE A ERROR BETTER TO VALIDATE$error_bad_catalog_url = new WP_Error(' ')
+$teh_data = $my_new_list_object->fetch_list($list_id);
+$catalog_url = $my_new_list_object->get_aspen_url();
 
-// explicitly cast as integer
-settype( $list_id, 'integer' );
+// if  (empty($catalog_url)) {
+// 	$the_error->add('the Catalog URL is not defined; please read the README For more information','the Catalog URL is not defined; please read the README For more information');
+// 	echo $the_error->get_error_message();
 
-// reminder: ASPEN_API_AUTHORIZATION_TOKEN is defined in wp-config.php
-$special_header_args = [
-	'headers' => [
-		'X-Custom-SPECIAL' => constant( 'ASPEN_API_AUTHORIZATION_TOKEN' ),
-		'X-custom-CPL'     => 'WP_PHP_Aspen_block',
-	],
-];
+// }
 
-$teh_request = wp_remote_get( $catalog_url . '/API/ListAPI?method=getListTitles&id=' . $list_id, $special_header_args );
+// // if headers response code is 403 - then bail and return; your API key is not authorized or there's a connection error with Aspen
+// if ( $teh_request['response']['code'] === 403 ) {
+// 	// $form_error = new WP_Error;
+//  //	throw new Exception ( $teh_request['body'] . 'Your API key or IP address is not authorized ');
+//  $the_error->add( $teh_request['body'] . 'Your API key or IP address is not authorized ');
+//  echo $the_error->get_error_message();
+// }
 
-// if headers response code is 403 - then bail and return; your API key is not authorized or there's a connection error with Aspen
-if ( $teh_request['response']['code'] === 403 ) {
- 	throw new Exception ( $teh_request['body'] . 'Your API key or IP address is not authorized ');
-}
-
-$body = wp_remote_retrieve_body( $teh_request );
-
-$teh_data = json_decode( $body, true );
-
-if ( $teh_data['result']['success'] === false) {
-	$the_error_message = $teh_data['result']['message'];
-		throw new Exception ( $the_error_message . 'This happens when the list is set to private; OR You haven\'t entered the list\'s ID. please toggle the list to be public so it can be used');
-	// return new WP_Error( $the_error_message, 'Falling and cant get up' );
-}
 
 if ( ! empty( $teh_data ) ) {
 	?>
@@ -115,7 +99,7 @@ if ( ! empty( $teh_data ) ) {
 
 	?>
 
-<p> The API request was successful but there are no items in this list; this will be refined </p>
+<p> The API request was successful but there are no items in this list; this will be refined. </p>
 
 
 	<?php
