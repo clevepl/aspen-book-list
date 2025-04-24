@@ -7,6 +7,7 @@ final class AspenList {
 
 	/**
 	 * Get the aspen CATALOG URL, return empty string if not defined
+	 * should be defined in wp-config.php
 	 *
 	 * @return string aspen catalog url
 	 */
@@ -16,25 +17,22 @@ final class AspenList {
 
 	/**
 	 * Get the associated/ special token that you registered with your Aspen Support Team; return empty string if not defined
+	 * ASPEN_API_AUTHORIZATION_TOKEN is defined in wp-config.php
 	 *
-	 * @return string special toke
+	 * @return string special token
 	 */
 	protected function get_aspen_special_token(): string {
 		return defined( 'ASPEN_API_AUTHORIZATION_TOKEN' ) ? constant( 'ASPEN_API_AUTHORIZATION_TOKEN' ) : '';
 	}
 
-	// public function fetch_prep() {
-
-	// }
-
 	// returns an array, teh_request
 	/**
-	* @param  // listid attribute
+	* @param  string $listid (it's just easier if we treat it as a string)
 	* @return array|WP_Error
 	*/
-	public function fetch_list() {
+	public function fetch_list($listid) {
 		$teh_request = wp_remote_get(
-		$this->get_aspen_url() . '/API/ListAPI?method=getListTitles&id=26',
+		$this->get_aspen_url() . '/API/ListAPI?method=getListTitles&id=' . sanitize_key($listid),
 		[
 		'headers' => [
 			'X-Custom-SPECIAL' => $this->get_aspen_special_token(),

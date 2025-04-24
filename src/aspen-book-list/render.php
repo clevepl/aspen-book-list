@@ -16,18 +16,10 @@
  * @var array    $context    Block context.
  */
 
-// function get_api_key(): string {
-// return defined( 'GOOGLE_PLACES_API_KEY' ) ? constant( 'GOOGLE_PLACES_API_KEY' ) : '';
-// }
-
-// TODO: MAKE THIS OOP, (ARE YOU DOWN WITH OOP, YEAH YOU KNOW ME?!)
-
 $list_id = isset( $attributes['listID'] ) ? $attributes['listID'] : '';
 
 $my_new_list_object = new \Cpl\AspenBookList\AspenList();
-$my_new_list_object->fetch_list();
-
-
+$my_new_list_object->fetch_list($list_id);
 
 // if  (empty($catalog_url)) {
 // 	$the_error->add('the Catalog URL is not defined; please read the README For more information','the Catalog URL is not defined; please read the README For more information');
@@ -36,7 +28,6 @@ $my_new_list_object->fetch_list();
 // }
 
 // explicitly cast as integer
-settype( $list_id, 'integer' );
 
 // reminder: ASPEN_API_AUTHORIZATION_TOKEN is defined in wp-config.php
 // $special_header_args = [
