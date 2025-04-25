@@ -30,6 +30,16 @@ final class AspenList {
 	 * @return array|WP_Error
 	 */
 	public function fetch_list( $listid ) {
+
+
+		$cached_list = get_transient ( 'aspen_api_list_id_' . $listid);
+
+		if (! empty ( $cached_list ) ) {
+			echo 'the return of the transient mack is here!';
+			return $cached_list;
+
+		}
+
 		$teh_request = wp_remote_get(
 			$this->get_aspen_url() . '/API/ListAPI?method=getListTitles&id=' . sanitize_key( $listid ),
 			[
@@ -66,6 +76,9 @@ final class AspenList {
 			// $the_error_message->add( $teh_data['result']['message'] , $teh_data['result']['message'] );
 			// echo $the_error_message;
 		}
+
+		// transient length set for 7 days ()
+		set_transient( 'aspen_api_list_id_' . $listid , $teh_data, 604800);
 
 		return $teh_data;
 	}
