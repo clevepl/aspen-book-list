@@ -2,7 +2,7 @@
 Contributors:      Cleveland Public Library (will skora and Tyrone Fontaine)
 Tags:              aspen,
 Tested up to:      6.7
-Stable tag:        0.2.0
+Stable tag:        0.2.1
 License:           GPL-2.0-or-later
 License URI:       https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -61,6 +61,9 @@ directory take precedence. For example, `/assets/screenshot-1.png` would win ove
 2. This is the second screen shot
 
 == Changelog ==
+
+= 0.2.1 =
+* Cache list results for 1 week
 
 = 0.2.0 =
 * Rewritten in OOP (Object-Oriented Programming)
