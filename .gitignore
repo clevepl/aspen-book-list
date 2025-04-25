@@ -28,3 +28,10 @@ node_modules/
 
 # dotenv environment variables file
 .env
+
+# VSCODE settings, on a per-user basis
+.vscode/
+
+/ to work on things temporarily, as a scratchpad
+patches
+
