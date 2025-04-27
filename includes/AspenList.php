@@ -35,7 +35,6 @@ final class AspenList {
 		$cached_list = get_transient ( 'aspen_api_list_id_' . $listid);
 
 		if (! empty ( $cached_list ) ) {
-			echo 'the return of the transient mack is here!';
 			return $cached_list;
 
 		}
