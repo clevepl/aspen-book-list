@@ -1,14 +1,14 @@
 === Aspen Book List ===
 Contributors:      Cleveland Public Library (will skora and Tyrone Fontaine)
 Tags:              aspen,
-Tested up to:      6.7
+Tested up to:      6.8
 Stable tag:        0.2.1
 License:           GPL-2.0-or-later
 License URI:       https://www.gnu.org/licenses/gpl-2.0.html
 
 Display a list of books (or other items) from Aspen's Discovery Catalog into WordPress as a block.
 
-This is intended for libraries; Aspen Discovery's API is not intended to be by the end users at this time (sorry).
+This is intended for libraries and their websites; Aspen Discovery's API is not intended to be used by end users at this time (sorry).
 
 LIMITATION: only will display the first 25 items on a list (for now).
 
@@ -20,8 +20,6 @@ The WordPress block was built with Create-Block(https://developer.wordpress.org/
 
 This section describes how to install the plugin and get it working.
 
-e.g.
-
 1. Work with Aspen support and direct them to make an authorized API token for you.
 2. In your website's wp-config.php, add the line
 define( 'ASPEN_API_AUTHORIZATION_TOKEN', 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX');
@@ -29,18 +27,18 @@ with your API key replacing XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX.
 3. In your website's wp-config.php, add the line
 define( 'ASPEN_API_CATALOG_URL', 'https://search.aspen-discovery.org');
 
-Replace https://search.aspen-discovery.org with your catalog's URL; Do not include the trailing backslash at the end of your catalog's URL.
+Replace https://search.aspen-discovery.org with your catalog's URL; do not include a trailing backslash at the end of your catalog's URL.
 
-4. Clone this repository and place it in the plugins folder.
+4. Download https://github.com/clevepl/aspen-book-list/archive/refs/heads/main.zip and unzip directory into your plugins directory folder
 5. Activate the plugin through the 'Plugins' screen in WordPress (or WP-CLI).
-
 
 == For Development ==
 
+If you wish to customize this, you will need to be familiar with the wordPress block building process (https://developer.wordpress.org/block-editor/getting-started/tutorial/ is a good place to start) 
+
 1. Clone repository
 2. run `npm run install` within the directory
-3. If you are modifying the class or adding a new class, run
-
+3. If you are adding a new class, run `composer dump-autoload -o` in plugin's root foldeer
 
 == Frequently Asked Questions ==
 
@@ -48,7 +46,7 @@ Replace https://search.aspen-discovery.org with your catalog's URL; Do not inclu
 
 No, not yet; might be on the radar.
 
-= Why does the list not display within the editor?  =
+= Why does the list's contents not display within the block editor?  =
 
 Eventually.
 
