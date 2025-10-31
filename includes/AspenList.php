@@ -62,10 +62,10 @@ final class AspenList {
 		$teh_data = json_decode( $body, true );
 
 		/*
-		* even there is a successful response from the API, the response from Aspen can result in 3 scensarios where we will not have a list:
+		* even there is a successful response from the API, the response from Aspen can result in 3 scenarios where we will not have a list:
 		* $teh_data['result']['success'] === false has three scenarios:
 		* the list is exists and is marked as private in Aspen (clear error message is given here)
-		// OR (and the Aspen API gives the identifical error message in these two scenarios )
+		// OR (and the Aspen API gives the identical error message in the following two scenarios )
 		// No listID was included in the block; or no such list with that listID exists.
 		*/
 		if ( $teh_data['result']['success'] === false ) {

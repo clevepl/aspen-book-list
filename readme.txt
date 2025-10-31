@@ -2,7 +2,7 @@
 Contributors:      Cleveland Public Library (will skora and Tyrone Fontaine)
 Tags:              aspen,
 Tested up to:      6.8
-Stable tag:        0.2.1
+Stable tag:        0.2.2
 License:           GPL-2.0-or-later
 License URI:       https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -10,7 +10,7 @@ Display a list of books (or other items) from Aspen's Discovery Catalog into Wor
 
 This is intended for libraries and their websites; Aspen Discovery's API is not intended to be used by end users at this time (sorry).
 
-LIMITATION: only will display the first 25 items on a list (for now).
+LIMITATION: only will display the first 25 items on a list; then links to the entire list.
 
 == Description ==
 
@@ -34,7 +34,7 @@ Replace https://search.aspen-discovery.org with your catalog's URL; do not inclu
 
 == For Development ==
 
-If you wish to customize this, you will need to be familiar with the wordPress block building process (https://developer.wordpress.org/block-editor/getting-started/tutorial/ is a good place to start) 
+If you wish to customize this, you will need to be familiar with the wordPress block building process (https://developer.wordpress.org/block-editor/getting-started/tutorial/ is a good place to start)
 
 1. Clone repository
 2. run `npm run install` within the directory
@@ -59,6 +59,9 @@ directory take precedence. For example, `/assets/screenshot-1.png` would win ove
 2. This is the second screen shot
 
 == Changelog ==
+
+= 0.2.2 =
+* Add a link to the entire list if the list has more than 25 items
 
 = 0.2.1 =
 * Cache list results for 1 week
