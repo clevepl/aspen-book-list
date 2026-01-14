@@ -1,6 +1,6 @@
 {
-	"name": "aspen-book-list",
-	"version": "0.2.2",
+	"name": "aspen-list",
+	"version": "0.3.0",
 	"description": "Display a list from the Aspen Discovery API",
 	"author": "Cleveland Public Library (Will skora and Tyrone Fontaine)",
 	"license": "GPL-2.0-or-later",

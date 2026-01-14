@@ -9,12 +9,12 @@ class ComposerStaticInitb45979b62662f14820dbcf3119deb7c8
     public static $prefixLengthsPsr4 = array (
         'C' => 
         array (
-            'Cpl\\AspenBookList\\' => 18,
+            'Cpl\\AspenList\\' => 14,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
-        'Cpl\\AspenBookList\\' => 
+        'Cpl\\AspenList\\' => 
         array (
             0 => __DIR__ . '/../..' . '/includes',
         ),
@@ -22,7 +22,6 @@ class ComposerStaticInitb45979b62662f14820dbcf3119deb7c8
 
     public static $classMap = array (
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
-        'Cpl\\AspenBookList\\AspenList' => __DIR__ . '/../..' . '/includes/AspenList.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

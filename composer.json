@@ -3,7 +3,7 @@
     "type": "project",
     "autoload": {
         "psr-4": {
-            "Cpl\\AspenBookList\\": "includes/"
+            "Cpl\\AspenList\\": "includes/"
         }
     },
     "authors": [

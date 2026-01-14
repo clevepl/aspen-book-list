@@ -7,5 +7,4 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
-    'Cpl\\AspenBookList\\AspenList' => $baseDir . '/includes/AspenList.php',
 );

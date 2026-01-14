@@ -1,6 +1,9 @@
 <?php
 
-namespace Cpl\AspenBookList;
+namespace Cpl\AspenList;
+
+use WP_Error;
+
 
 final class AspenList {
 
@@ -31,10 +34,9 @@ final class AspenList {
 	 */
 	public function fetch_list( $listid ) {
 
+		$cached_list = get_transient( 'aspen_api_list_id_' . $listid );
 
-		$cached_list = get_transient ( 'aspen_api_list_id_' . $listid);
-
-		if (! empty ( $cached_list ) ) {
+		if ( ! empty( $cached_list ) ) {
 			return $cached_list;
 
 		}
@@ -49,10 +51,7 @@ final class AspenList {
 			]
 		);
 
-		// set transient for the list spefifically
-		// set_transient( self::LIBCAL_ACCESS_TOKEN_CACHE_GROUP, $data['access_token'], 3600 );
-
-		// Check for request errors
+		// Check for request errors - TO IMPROVE
 		if ( is_wp_error( $teh_request ) ) {
 			return new \WP_Error( 'libcal_token_error', __( 'Failed to retrieve LibCal access token.', 'cpl-plugin' ) );
 		}
@@ -77,7 +76,7 @@ final class AspenList {
 		}
 
 		// transient length set for 7 days ()
-		set_transient( 'aspen_api_list_id_' . $listid , $teh_data, 604800);
+		set_transient( 'aspen_api_list_id_' . $listid, $teh_data, 604800 );
 
 		return $teh_data;
 	}
