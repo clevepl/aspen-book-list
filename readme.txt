@@ -1,8 +1,8 @@
-=== Aspen Book List ===
+=== Aspen List ===
 Contributors:      Cleveland Public Library (will skora and Tyrone Fontaine)
 Tags:              aspen,
-Tested up to:      6.8
-Stable tag:        0.2.2
+Tested up to:      6.9
+Stable tag:        0.3.0
 License:           GPL-2.0-or-later
 License URI:       https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -37,8 +37,8 @@ Replace https://search.aspen-discovery.org with your catalog's URL; do not inclu
 If you wish to customize this, you will need to be familiar with the wordPress block building process (https://developer.wordpress.org/block-editor/getting-started/tutorial/ is a good place to start)
 
 1. Clone repository
-2. run `npm run install` within the directory
-3. If you are adding a new class, run `composer dump-autoload -o` in plugin's root foldeer
+2. run `npm install` within the directory
+3. If you are adding a new class, run `composer dump-autoload -o` in plugin's root folder
 
 == Frequently Asked Questions ==
 
@@ -59,6 +59,11 @@ directory take precedence. For example, `/assets/screenshot-1.png` would win ove
 2. This is the second screen shot
 
 == Changelog ==
+
+= 0.3.0 =
+* BREAKING: Block has been renamed from cpl/aspen-book-list to cpl/aspen-list; Existing blocks will not work.
+This name change will enable us to sync changes from our production instance (hosted elsewhere) to this repository.
+* Rename textdomain, PHP class
 
 = 0.2.2 =
 * Add a link to the entire list if the list has more than 25 items

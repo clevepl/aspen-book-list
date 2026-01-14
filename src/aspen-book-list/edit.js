@@ -47,7 +47,7 @@ const BlockEdit = ( props ) => {
 		<p { ...useBlockProps() }>
 			{ __(
 				'Hello! the list contents will display on the front end when you press save',
-				'aspen-book-list'
+				'aspen-list'
 			) }
 
 
@@ -64,7 +64,7 @@ const BlockEdit = ( props ) => {
 				/>
 			</InspectorControls>
 
-			{/* { <ServerSideRender block="create-block/aspen-book-list" attributes={attributes} />  } */}
+			{/* { <ServerSideRender block="create-block/aspen-list" attributes={attributes} />  } */}
 		</p>
 	);
 };

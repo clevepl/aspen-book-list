@@ -1,8 +1,8 @@
 <?php
 /**
- * Plugin Name:       Aspen Book List
+ * Plugin Name:       Aspen List
  * Description:       Display a list from the Aspen Discovery API
- * Version:           0.2.2
+ * Version:           0.3.0
  * Requires at least: 6.7
  * Requires PHP:      8.X
  * Author:            Cleveland Public Library (Will skora and Tyrone Fontaine)

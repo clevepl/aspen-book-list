@@ -1,42 +1,24 @@
-/**
- * The following styles get applied both on the front of your site
- * and in the editor.
- *
- * Replace them with your own styles or remove the file completely.
- */
-
-
 img {
   max-width: 100%;
   height: auto;
 }
-.container {
-  max-width: 120ch !important;
 
-}
 @media (min-width: 500px) {
   .media-object-container {
     display: grid;
     grid-template-columns: fit-content(200px) 1fr;
-    grid-template-rows:1fr auto;
-    grid-template-areas:
-      "area-media area-object"
-      "area-media area-footer";
+    grid-template-rows: 1fr auto;
+    grid-template-areas: "area-media area-object" "area-media area-footer";
     grid-gap: 20px;
     margin-bottom: 0;
   }
-
   .media-flip {
     grid-template-columns: 1fr fit-content(250px);
-    grid-template-areas:
-      "area-object area-media"
-      "area-footer area-media";
+    grid-template-areas: "area-object area-media" "area-footer area-media";
   }
-
   .media-object__media {
     grid-area: area-media;
   }
-
   .media-object__object {
     grid-area: area-object;
   }
@@ -44,11 +26,11 @@ img {
 
 h3.cpl-flex--mini__item-name {
   margin: 10px 0;
-  color: #0057B7;
   line-height: 1.3;
+	text-transform: capitalize;
 }
 
-.master-container {
+.wp-block-cpl-aspen-list {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 20px;
@@ -56,11 +38,8 @@ h3.cpl-flex--mini__item-name {
 
 .media-object-container {
   background: #fff;
-  -webkit-border-radius: 6px;
-  -moz-border-radius: 6px;
   border-radius: 6px;
   border-right: 10px solid #0057B7;
-  // overflow:hidden;
 }
 
 .media-object__media {
@@ -71,10 +50,10 @@ h3.cpl-flex--mini__item-name {
 }
 
 .media-object__media img {
-  object-fit: contain;
+     object-fit: contain;
   width: 100%;
   height: 100%;
-  object-position: center;
+     object-position: center;
 }
 
 .media-object__object .wp-block-button {
@@ -95,28 +74,22 @@ h3.cpl-flex--mini__item-name {
 }
 
 @media (max-width: 979px) {
-
   .media-object-container {
     grid-gap: 5px;
     border-right: none;
     border-bottom: 10px solid #0057B7;
   }
-
-  .master-container {
+  .wp-block-cpl-aspen-list {
     grid-template-columns: 1fr;
   }
-
   .media-object__media {
     height: 225px;
     width: 100%;
   }
-
   .media-object__object {
     padding: 15px 5px 15px 15px;
   }
-
   h3.cpl-flex--mini__item-name {
     margin-top: 0;
   }
-
 }

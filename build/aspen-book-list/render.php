@@ -18,7 +18,7 @@
 
 $list_id = isset( $attributes['listID'] ) ? $attributes['listID'] : '';
 
-$my_new_list_object = new \Cpl\AspenBookList\AspenList();
+$my_new_list_object = new \Cpl\AspenList\AspenList();
 
 $teh_data    = $my_new_list_object->fetch_list( $list_id );
 $catalog_url = $my_new_list_object->get_aspen_url();
@@ -48,7 +48,7 @@ if ( ! empty( $teh_data ) ) {
 	<?php
 	echo get_block_wrapper_attributes(
 		[
-			'class' => 'master-container',
+			'class' => '',
 		]
 	);
 	?>
@@ -96,7 +96,7 @@ if ( ! empty( $teh_data ) ) {
 	// } // end of for loop
 	?>
 
-</div><!-- master-container -->
+</div><!-- container -->
 
 	<?php
 
