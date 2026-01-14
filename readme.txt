@@ -37,8 +37,8 @@ Replace https://search.aspen-discovery.org with your catalog's URL; do not inclu
 If you wish to customize this, you will need to be familiar with the wordPress block building process (https://developer.wordpress.org/block-editor/getting-started/tutorial/ is a good place to start)
 
 1. Clone repository
-2. run `npm run install` within the directory
-3. If you are adding a new class, run `composer dump-autoload -o` in plugin's root foldeer
+2. run `npm install` within the directory
+3. If you are adding a new class, run `composer dump-autoload -o` in plugin's root folder
 
 == Frequently Asked Questions ==
 
