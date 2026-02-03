@@ -2,7 +2,7 @@
 Contributors:      Cleveland Public Library (will skora and Tyrone Fontaine)
 Tags:              aspen,
 Tested up to:      6.9
-Stable tag:        0.3.0
+Stable tag:        0.4.0
 License:           GPL-2.0-or-later
 License URI:       https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -59,6 +59,11 @@ directory take precedence. For example, `/assets/screenshot-1.png` would win ove
 2. This is the second screen shot
 
 == Changelog ==
+
+= 0.4.0 =
+* Use more appropriate semantic HTML, li instead of h3
+* no longer enqueue an unecessary js file on front-end
+
 
 = 0.3.0 =
 * BREAKING: Block has been renamed from cpl/aspen-book-list to cpl/aspen-list; Existing blocks will not work.

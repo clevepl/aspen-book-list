@@ -22,6 +22,7 @@ class ComposerStaticInitb45979b62662f14820dbcf3119deb7c8
 
     public static $classMap = array (
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
+        'Cpl\\AspenList\\AspenList' => __DIR__ . '/../..' . '/includes/AspenList.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

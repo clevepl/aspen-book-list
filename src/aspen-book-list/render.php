@@ -44,7 +44,7 @@ $list_url = $catalog_url . '/MyAccount/MyList/' . $list_id;
 
 if ( ! empty( $teh_data ) ) {
 	?>
-<div
+<ul
 	<?php
 	echo get_block_wrapper_attributes(
 		[
@@ -76,7 +76,7 @@ if ( ! empty( $teh_data ) ) {
 	</div>
 	<div class="media-object__object">
 
-		<h3 class="cpl-flex--mini__item-name"><?php echo esc_html( $title ); ?></h3>
+		<li class="cpl-flex--mini__item-name"><?php echo esc_html( $title ); ?></li>
 
 		<?php if ( ! empty( $author ) ) : ?>
 	<span class="cpl-flex--mini__item-date">By: <?php echo esc_html( $author ); ?></span>
@@ -96,7 +96,7 @@ if ( ! empty( $teh_data ) ) {
 	// } // end of for loop
 	?>
 
-</div><!-- container -->
+</ul><!-- container -->
 
 	<?php
 
