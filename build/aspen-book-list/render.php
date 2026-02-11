@@ -18,9 +18,12 @@
 
 $list_id = isset( $attributes['listID'] ) ? $attributes['listID'] : '';
 
+$item_quantity = isset( $attributes['numItems'] ) ? $attributes['numItems'] : '20';
+
+
 $my_new_list_object = new \Cpl\AspenList\AspenList();
 
-$teh_data    = $my_new_list_object->fetch_list( $list_id );
+$teh_data    = $my_new_list_object->fetch_list( $list_id, $item_quantity );
 $catalog_url = $my_new_list_object->get_aspen_url();
 
 // i think this is the best place to place it ? instead of in the class ?
@@ -100,8 +103,8 @@ if ( ! empty( $teh_data ) ) {
 
 	<?php
 
-		// if there are more than 25 items in the list; display a button-like link that will display the rest of the items
-	if ( $teh_data['result']['totalResults'] > 25 ) {
+		// if there are more items in the list; than what was requested display a button-like link that will display the rest of the items
+	if ( $teh_data['result']['totalResults'] > $item_quantity ) {
 		?>
 
 		<div class="wp-block-buttons is-content-justification-center is-layout-flex wp-container-core-buttons-is-layout-a89b3969 wp-block-buttons-is-layout-flex">
