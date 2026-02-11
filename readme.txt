@@ -2,7 +2,7 @@
 Contributors:      Cleveland Public Library (will skora and Tyrone Fontaine)
 Tags:              aspen,
 Tested up to:      6.9
-Stable tag:        0.4.0
+Stable tag:        0.4.3
 License:           GPL-2.0-or-later
 License URI:       https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -59,6 +59,9 @@ directory take precedence. For example, `/assets/screenshot-1.png` would win ove
 2. This is the second screen shot
 
 == Changelog ==
+
+= 0.4.3 =
+* Choose how many items you want to display from the list; default is 20. 
 
 = 0.4.0 =
 * Use more appropriate semantic HTML, li instead of h3

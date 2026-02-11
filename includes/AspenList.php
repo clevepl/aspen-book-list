@@ -1,10 +1,19 @@
 <?php
+/**
+ * Aspen Discovery List
+ *
+ * @package Cpl
+ */
 
 namespace Cpl\AspenList;
 
 use WP_Error;
 
-
+/**
+ * AspenList class
+ *
+ * @package Cpl
+ */
 final class AspenList {
 
 	/**
@@ -27,14 +36,16 @@ final class AspenList {
 		return defined( 'ASPEN_API_AUTHORIZATION_TOKEN' ) ? constant( 'ASPEN_API_AUTHORIZATION_TOKEN' ) : '';
 	}
 
-	// returns an array, teh_request
 	/**
+	 * Make the API call where we fetch the list and its contents
+	 *
 	 * @param  string $listid (it's just easier if we treat it as a string)
+	 * @param  string $item_quantity (the number of titles to bring back)
 	 * @return array|WP_Error
 	 */
-	public function fetch_list( $listid ) {
+	public function fetch_list( $listid, $item_quantity ) {
 
-		$cached_list = get_transient( 'aspen_api_list_id_' . $listid );
+		$cached_list = get_transient( 'aspen_api_list_id_' . $listid . $item_quantity );
 
 		if ( ! empty( $cached_list ) ) {
 			return $cached_list;
@@ -42,7 +53,7 @@ final class AspenList {
 		}
 
 		$teh_request = wp_remote_get(
-			$this->get_aspen_url() . '/API/ListAPI?method=getListTitles&id=' . sanitize_key( $listid ),
+			$this->get_aspen_url() . '/API/ListAPI?method=getListTitles&id=' . sanitize_key( $listid ) . '&numTitles=' . absint( $item_quantity ),
 			[
 				'headers' => [
 					'X-Custom-SPECIAL' => $this->get_aspen_special_token(),
@@ -76,7 +87,7 @@ final class AspenList {
 		}
 
 		// transient length set for 7 days ()
-		set_transient( 'aspen_api_list_id_' . $listid, $teh_data, 604800 );
+		set_transient( 'aspen_api_list_id_' . $listid . $item_quantity, $teh_data, 604800 );
 
 		return $teh_data;
 	}
